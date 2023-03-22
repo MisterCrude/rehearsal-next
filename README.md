@@ -41,7 +41,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - [Next.js](https://vercel.com/solutions/nextjs)
 - [NextAuth.js](https://next-auth.js.org/)
-- [Auth0](https://auth0.com)
+- [MUI](https://mui.com/)
 
 ### Services
 
