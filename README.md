@@ -45,6 +45,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Services
 
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database) - database
 - [Vercel](https://vercel.com/) - deployment
 - [Auth0](https://auth0.com/) - authentication
