@@ -1,11 +1,13 @@
 // import { useSession, signIn, signOut } from "next-auth/react";
-import { getEntries } from "@/utils/contentful";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Studio, StudioDto } from "@/dto/studio";
-import { mapImageDtoToEntity } from "@/utils/mappers/mapDtoToEntity";
+import { getEntries } from "@/utils/contentful";
+import { mapDtoToImage } from "@/utils/mappers/dtoToObject";
+import { richTextToComponent } from "@/utils/mappers/richTextToComponent";
+import Box from "@mui/material/Box";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 interface HomeProps {
-  studios: Studio[] | null;
+  studios: Studio[];
 }
 
 function Home({
@@ -27,19 +29,25 @@ function Home({
   //   </>
   // );
 
-  return <>Home</>;
+  return (
+    <>
+      {studios.map((studio) => (
+        <Box key={studio.title}>
+          <Box>{studio.title}</Box>
+          <Box>{richTextToComponent(studio.description)}</Box>
+        </Box>
+      ))}
+    </>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const res = await getEntries<StudioDto>("studio");
+  const entries = await getEntries<StudioDto>("studio");
 
-  console.log(res[0].description);
+  const studios: Studio[] = entries.map((studio) => {
+    const image = studio?.image ? mapDtoToImage(studio.image) : null;
 
-  const studios: Studio[] = res.map((studio) => {
-    const image = studio?.image ? mapImageDtoToEntity(studio.image) : null;
-    const description = null;
-
-    return { ...studio, image, description };
+    return { ...studio, image };
   });
 
   return {

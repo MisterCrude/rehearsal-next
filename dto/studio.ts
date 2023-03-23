@@ -1,5 +1,5 @@
-import { RichTextField, ImageField } from "@/types/contentful";
-import { EntryFields, Asset } from "contentful";
+import { ImageField } from "@/types/contentful";
+import { Asset, EntryFields } from "contentful";
 
 export interface StudioDto {
   title: string;
@@ -11,7 +11,6 @@ export interface StudioDto {
   image?: Asset;
 }
 
-export interface Studio extends Omit<StudioDto, "description" | "image"> {
-  description: RichTextField | null;
+export interface Studio extends Omit<StudioDto, "image"> {
   image: ImageField | null;
 }

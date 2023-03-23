@@ -51,3 +51,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Auth0](https://auth0.com/) - authentication
 - [Contentful](https://www.contentful.com/) - headless CMS
   - [Strapi](https://strapi.io/features) - open source alternative
+
+### FAQ
+
+- [TS with contentful](https://www.contentful.com/developers/docs/javascript/tutorials/typescript-in-javascript-client-library/)
+- [Rendering RichText in contentful](https://www.contentful.com/developers/docs/javascript/tutorials/rendering-contentful-rich-text-with-javascript/)

@@ -1,7 +1,7 @@
 import { ImageField } from "@/types/contentful";
 import { Asset } from "contentful";
 
-export const mapImageDtoToEntity = (image: Asset): ImageField => {
+export const mapDtoToImage = (image: Asset): ImageField => {
   return {
     id: image.sys.id,
     description: image.fields.description,
