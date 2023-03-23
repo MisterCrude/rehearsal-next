@@ -27,6 +27,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+  - [Next.js Documentation in GihHub](https://github.com/vercel/next.js/tree/canary/docs)
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
@@ -42,8 +43,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Next.js](https://vercel.com/solutions/nextjs)
 - [NextAuth.js](https://next-auth.js.org/)
 - [MUI](https://mui.com/)
+- [Contentful](https://www.npmjs.com/package/contentful)
 
 ### Services
 
 - [Vercel](https://vercel.com/) - deployment
 - [Auth0](https://auth0.com/) - authentication
+- [Contentful](https://www.contentful.com/) - headless CMS
+  - [Strapi](https://strapi.io/features) - open source alternative
