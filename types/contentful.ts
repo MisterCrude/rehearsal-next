@@ -3,5 +3,6 @@ export interface ImageField {
   description: string;
   title: string;
   url: string;
+  width?: number;
+  height?: number;
 }
-export interface RichTextField {}

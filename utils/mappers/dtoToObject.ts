@@ -6,6 +6,8 @@ export const mapDtoToImage = (image: Asset): ImageField => {
     id: image.sys.id,
     description: image.fields.description,
     title: image.fields.title,
-    url: image.fields.file.url,
+    url: `https:${image.fields.file.url}`,
+    width: image.fields.file.details.image?.width,
+    height: image.fields.file.details.image?.height,
   };
 };
