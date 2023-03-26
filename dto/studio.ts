@@ -1,16 +1,30 @@
 import { ImageField } from "@/types/contentful";
-import { Asset, EntryFields } from "contentful";
+import { Asset, Entry, EntryFields } from "contentful";
 
 export interface StudioDto {
-  title: string;
-  description: EntryFields.RichText;
+  id: string;
   address: string;
+  district: Entry<District>;
   link: string;
+  title: string;
+  description?: EntryFields.RichText;
   email?: string;
-  phone?: string;
   image?: Asset;
+  phone?: string;
 }
 
-export interface Studio extends Omit<StudioDto, "image"> {
-  image: ImageField | null;
+export interface District {
+  id: string;
+  name: string;
+}
+export interface Studio {
+  id: string;
+  address: string;
+  district: District;
+  link: string;
+  title: string;
+  description?: EntryFields.RichText;
+  email?: string;
+  image?: ImageField;
+  phone?: string;
 }

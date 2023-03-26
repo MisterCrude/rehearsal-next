@@ -10,5 +10,5 @@ export const getEntries = async <T>(contentType: string) => {
     content_type: contentType,
   });
 
-  return items.map((item) => item.fields);
+  return items.map((item) => ({ ...item.fields, id: item.sys.id }));
 };
