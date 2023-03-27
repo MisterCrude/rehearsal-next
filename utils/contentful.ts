@@ -5,10 +5,10 @@ export const apiClient = createClient({
   space: process.env.CONTENTFUL_SPACE_ID || "",
 });
 
-export const getEntries = async <T>(contentType: string) => {
-  const { items } = await apiClient.getEntries<T>({
+export const getEntries = async <T>(contentType: string): Promise<T[]> => {
+  const { items } = await apiClient.getEntries<Omit<T, "id">>({
     content_type: contentType,
   });
 
-  return items.map((item) => ({ ...item.fields, id: item.sys.id }));
+  return items.map((item) => ({ ...item.fields, id: item.sys.id } as T));
 };

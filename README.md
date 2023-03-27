@@ -44,6 +44,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [NextAuth.js](https://next-auth.js.org/)
 - [MUI](https://mui.com/)
 - [Contentful](https://www.npmjs.com/package/contentful)
+- [lodash](https://lodash.com/)
 
 ### Services
 

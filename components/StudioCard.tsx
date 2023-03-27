@@ -1,6 +1,7 @@
 import { Studio } from "@/dto/studio";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -16,7 +17,7 @@ interface StudioCard {
 }
 
 export default function StudioCard({ studio }: StudioCard) {
-  const { title, image, link, address, district } = studio;
+  const { title, image, link, address, district, services } = studio;
 
   return (
     <CardActionArea component="a" href={link} target="_blank">
@@ -42,19 +43,20 @@ export default function StudioCard({ studio }: StudioCard) {
             {title}
           </Typography>
           <Chip
-            icon={<LocationOnIcon />}
+            icon={<DomainOutlinedIcon />}
             label={district.name}
             size="small"
-            sx={{ mb: 1, mt: 1 }}
+            sx={{ my: 1, px: 0.5 }}
             variant="outlined"
           />
+
           <Typography
             variant="subtitle1"
             color="text.secondary"
             component="div"
-            sx={{ mb: 2 }}
+            sx={{ mb: 2, alignItems: "center", display: "flex" }}
           >
-            {address}
+            <RoomOutlinedIcon sx={{ mr: 0.5 }} /> {address}
           </Typography>
 
           <Box
@@ -65,34 +67,19 @@ export default function StudioCard({ studio }: StudioCard) {
             }}
           >
             <Stack direction="row" spacing={1}>
-              <Chip
-                label="Sala prob"
-                color="primary"
-                size="small"
-                sx={{ paddingX: 0.6 }}
-              />
-              <Chip
-                label="Nagrania"
-                color="primary"
-                size="small"
-                sx={{ paddingX: 0.6 }}
-              />
-              <Chip
-                label="Miksing"
-                color="primary"
-                size="small"
-                sx={{ paddingX: 0.6 }}
-              />
-              <Chip
-                label="Mastering"
-                color="primary"
-                size="small"
-                sx={{ paddingX: 0.6 }}
-              />
+              {services?.map((service) => (
+                <Chip
+                  key={service.id}
+                  label={service.name}
+                  color="primary"
+                  size="small"
+                  sx={{ paddingX: 0.6 }}
+                />
+              ))}
             </Stack>
 
             <Typography variant="subtitle1" color="primary" align="right">
-              Zprawź <OpenInNewIcon sx={{ fontSize: "inherit", mb: -0.2 }} />
+              Sprawź <OpenInNewIcon sx={{ fontSize: "inherit", mb: -0.2 }} />
             </Typography>
           </Box>
         </CardContent>
