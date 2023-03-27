@@ -16,7 +16,6 @@ export default function DistrictChip({
     <Chip
       clickable
       onClick={() => onSelect?.()}
-      size="small"
       icon={<DomainOutlinedIcon />}
       color={selected ? "primary" : "default"}
       label={name}

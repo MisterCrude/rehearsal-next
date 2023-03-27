@@ -4,6 +4,7 @@ import StudioCard from "@/components/StudioCard";
 import { getDistricts } from "@/contentful/district";
 import { getServices } from "@/contentful/service";
 import { getStudios } from "@/contentful/studio";
+import { Typography } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import { InferGetServerSidePropsType } from "next";
 import { useState } from "react";
@@ -29,6 +30,20 @@ export default function Home({
   return (
     <Layout>
       <Filters districts={districts} onChange={handleFilterChange} />
+
+      {!filteredStudios.length && (
+        <Typography
+          variant="h4"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: 6,
+            color: "divider",
+          }}
+        >
+          Nic nie znaleziono!
+        </Typography>
+      )}
 
       <Stack gap={4}>
         {filteredStudios.map((studio) => (
