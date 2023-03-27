@@ -18,7 +18,6 @@ export interface Service extends ServiceDto {
 }
 
 export interface StudioDto {
-  id: string;
   address: string;
   district: Entry<DistrictDto>;
   link: string;
@@ -32,6 +31,7 @@ export interface StudioDto {
 
 export interface Studio
   extends Omit<StudioDto, "district" | "services" | "image"> {
+  id: string;
   district: District;
   services?: Service[];
   image?: ImageField;

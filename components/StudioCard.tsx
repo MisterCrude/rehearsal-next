@@ -46,7 +46,7 @@ export default function StudioCard({ studio }: StudioCard) {
             icon={<DomainOutlinedIcon />}
             label={district.name}
             size="small"
-            sx={{ my: 1, px: 0.5 }}
+            sx={{ my: 1, paddingLeft: 0.7, paddingRight: 0.3 }}
             variant="outlined"
           />
 
@@ -54,7 +54,7 @@ export default function StudioCard({ studio }: StudioCard) {
             variant="subtitle1"
             color="text.secondary"
             component="div"
-            sx={{ mb: 2, alignItems: "center", display: "flex" }}
+            sx={{ marginBottom: 2, alignItems: "center", display: "flex" }}
           >
             <RoomOutlinedIcon sx={{ mr: 0.5 }} /> {address}
           </Typography>
@@ -79,7 +79,8 @@ export default function StudioCard({ studio }: StudioCard) {
             </Stack>
 
             <Typography variant="subtitle1" color="primary" align="right">
-              Sprawź <OpenInNewIcon sx={{ fontSize: "inherit", mb: -0.2 }} />
+              Sprawź{" "}
+              <OpenInNewIcon sx={{ fontSize: "inherit", marginBottom: -0.2 }} />
             </Typography>
           </Box>
         </CardContent>

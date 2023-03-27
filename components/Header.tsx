@@ -1,4 +1,3 @@
-import AppBar from "@mui/material/AppBar";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -17,16 +16,10 @@ function Logo() {
 
 export default function Header() {
   return (
-    <AppBar position="relative">
-      <Toolbar component={Container} sx={{ justifyContent: "space-between" }}>
+    <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <Toolbar component={Container} sx={{ justifyContent: "center" }}>
         <Logo />
-        <Box>
-          {/* 
-            Side menu example:
-            <Button color="inherit">Login</Button> 
-          */}
-        </Box>
       </Toolbar>
-    </AppBar>
+    </Box>
   );
 }

@@ -6,8 +6,7 @@ export default function Main({ children }: PropsWithChildren) {
     <Container
       component="main"
       sx={{
-        mt: 8,
-        mb: 2,
+        marginY: 4,
         flexGrow: 1,
       }}
     >

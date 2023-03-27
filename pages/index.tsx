@@ -1,18 +1,19 @@
+import Filters from "@/components/Filters";
 import Layout from "@/components/Layout";
 import StudioCard from "@/components/StudioCard";
-import { StudioDto } from "@/dto/studio";
-import { getEntries } from "@/utils/contentful";
-import { dtoToDistrict } from "@/utils/mappers/dtoToDistrict";
-import { dtoToImage } from "@/utils/mappers/dtoToImage";
-import { dtoToServices } from "@/utils/mappers/dtoToServices";
+import { getDistricts } from "@/contentful/district";
+import { getServices } from "@/contentful/service";
+import { getStudios } from "@/contentful/studio";
 import Stack from "@mui/material/Stack";
 import { InferGetServerSidePropsType } from "next";
 
 export default function Home({
   studios,
+  districts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <Layout>
+      <Filters districts={districts} onChange={console.log} />
       <Stack gap={4}>
         {studios.map((studio) => (
           <StudioCard key={studio.id} studio={studio} />
@@ -23,19 +24,15 @@ export default function Home({
 }
 
 export async function getServerSideProps() {
-  const entries = await getEntries<StudioDto>("studio");
-
-  const studios = entries.map((studioDto) => {
-    const image = studioDto.image && dtoToImage(studioDto.image);
-    const services = studioDto.services && dtoToServices(studioDto.services);
-    const district = dtoToDistrict(studioDto.district);
-
-    return { ...studioDto, image, district, services };
-  });
+  const studios = await getStudios();
+  const services = await getServices();
+  const districts = await getDistricts();
 
   return {
     props: {
       studios,
+      services,
+      districts,
     },
   };
 }
