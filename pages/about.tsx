@@ -7,7 +7,6 @@ export default function About({
   page,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return <Layout>{richTextToComponents(page.content)}</Layout>;
-  return <>1</>;
 }
 
 export async function getServerSideProps() {

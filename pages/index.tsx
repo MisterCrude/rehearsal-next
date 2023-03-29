@@ -4,8 +4,9 @@ import StudioCard from "@/components/StudioCard";
 import { getDistricts } from "@/contentful/district";
 import { getServices } from "@/contentful/service";
 import { getStudios } from "@/contentful/studio";
-import { Typography } from "@mui/material";
+import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 import { InferGetServerSidePropsType } from "next";
 import { useState } from "react";
 
@@ -31,6 +32,13 @@ export default function Home({
     <Layout>
       <Filters districts={districts} onChange={handleFilterChange} />
 
+      {/* Move to separate component */}
+      <Box
+        sx={{ marginBottom: 2, justifyContent: "flex-end", display: "flex" }}
+      >
+        Pokazano {filteredStudios.length} z {studios.length}
+      </Box>
+
       {!filteredStudios.length && (
         <Typography
           variant="h4"
@@ -41,7 +49,7 @@ export default function Home({
             color: "divider",
           }}
         >
-          Nic nie znaleziono!
+          Nie znaleziono!
         </Typography>
       )}
 
@@ -58,6 +66,8 @@ export async function getServerSideProps() {
   const studios = await getStudios();
   const services = await getServices();
   const districts = await getDistricts();
+
+  console.log(studios);
 
   return {
     props: {

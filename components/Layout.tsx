@@ -1,3 +1,4 @@
+import { BRAND_NAME } from "@/utils/constants";
 import Box from "@mui/material/Box";
 import { PropsWithChildren } from "react";
 import Footer from "./Footer";
@@ -9,7 +10,7 @@ export default function Layout({ children }: PropsWithChildren) {
     <Box sx={{ minHeight: "100vh", flexDirection: "column", display: "flex" }}>
       <Header />
       <Main>{children}</Main>
-      <Footer description="Proba portal" title="proba.pl" />
+      <Footer title={BRAND_NAME} />
     </Box>
   );
 }

@@ -1,14 +1,16 @@
-import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import Chip from "@mui/material/Chip";
+import { ReactElement } from "react";
 
 interface DistrictChipProps {
   name: string;
+  icon?: ReactElement;
   selected?: boolean;
   onSelect?: () => void;
 }
 
 export default function DistrictChip({
   name,
+  icon,
   selected,
   onSelect,
 }: DistrictChipProps) {
@@ -16,7 +18,7 @@ export default function DistrictChip({
     <Chip
       clickable
       onClick={() => onSelect?.()}
-      icon={<DomainOutlinedIcon />}
+      icon={icon}
       color={selected ? "primary" : "default"}
       label={name}
       sx={{ paddingLeft: 0.7, paddingRight: 0.3 }}

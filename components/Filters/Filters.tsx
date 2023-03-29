@@ -1,4 +1,5 @@
 import { District } from "@/dto/studio";
+import DomainIcon from "@mui/icons-material/Domain";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import DistrictChip from "./DistrictChip";
@@ -37,6 +38,7 @@ export default function Filters({ districts, onChange }: FiltersProps) {
       />
       {districts.map((district) => (
         <DistrictChip
+          icon={<DomainIcon />}
           onSelect={() => handleSelect(district.id)}
           name={district.name}
           selected={selectedFilters.includes(district.id)}
