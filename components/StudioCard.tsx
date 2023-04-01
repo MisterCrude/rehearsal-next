@@ -30,6 +30,8 @@ export default function StudioCard({ studio }: StudioCard) {
             {image && (
               <Image
                 fill
+                priority
+                sizes="auto"
                 alt={image.title}
                 src={image.url}
                 style={{ objectFit: "cover" }}

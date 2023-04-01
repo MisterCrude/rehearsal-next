@@ -1,3 +1,4 @@
+import { SnackbarProvider } from "@/bootstrap/SnackbarContext";
 import { createEmotionCache } from "@/utils/createEmotionCache";
 import { theme } from "@/utils/theme";
 import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";
@@ -24,9 +25,11 @@ export default function App({
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
-        <SessionProvider session={session}>
-          <Component {...pageProps} />
-        </SessionProvider>
+        <SnackbarProvider>
+          <SessionProvider session={session}>
+            <Component {...pageProps} />
+          </SessionProvider>
+        </SnackbarProvider>
         <CssBaseline />
       </ThemeProvider>
     </CacheProvider>
