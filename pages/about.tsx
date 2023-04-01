@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { getPage } from "@/contentful/page";
+import { getContentPayload } from "@/contentful/contentPayload";
 import { richTextToComponents } from "@/utils/mappers/richTextToComponents";
 import { InferGetServerSidePropsType } from "next";
 
@@ -10,7 +10,7 @@ export default function About({
 }
 
 export async function getServerSideProps() {
-  const page = await getPage("about");
+  const page = await getContentPayload("about-page");
 
   return {
     props: {

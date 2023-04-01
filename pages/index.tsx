@@ -4,7 +4,6 @@ import StudioCard from "@/components/StudioCard";
 import { getDistricts } from "@/contentful/district";
 import { getServices } from "@/contentful/service";
 import { getStudios } from "@/contentful/studio";
-import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { InferGetServerSidePropsType } from "next";
@@ -33,11 +32,16 @@ export default function Home({
       <Filters districts={districts} onChange={handleFilterChange} />
 
       {/* Move to separate component */}
-      <Box
-        sx={{ marginBottom: 2, justifyContent: "flex-end", display: "flex" }}
+      <Typography
+        sx={{
+          marginBottom: 2,
+          justifyContent: "flex-end",
+          display: "flex",
+          color: "gray",
+        }}
       >
-        Pokazano {filteredStudios.length} z {studios.length}
-      </Box>
+        {filteredStudios.length} ofert
+      </Typography>
 
       {!filteredStudios.length && (
         <Typography
@@ -66,8 +70,6 @@ export async function getServerSideProps() {
   const studios = await getStudios();
   const services = await getServices();
   const districts = await getDistricts();
-
-  console.log(studios);
 
   return {
     props: {

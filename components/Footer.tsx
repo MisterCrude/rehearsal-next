@@ -1,4 +1,4 @@
-import { BRAND_NAME } from "@/utils/constants";
+import { BRAND_NAME, BRAND_URL } from "@/utils/constants";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
@@ -8,7 +8,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href={BRAND_URL} target="_blank">
         {BRAND_NAME}
       </Link>{" "}
       {new Date().getFullYear()}
