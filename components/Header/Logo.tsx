@@ -1,4 +1,4 @@
-import { BRAND_NAME } from "@/utils/constants";
+import { BRAND_NAME } from "@/constants";
 import Badge from "@mui/material/Badge";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";

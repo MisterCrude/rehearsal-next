@@ -1,6 +1,7 @@
 import { EntryFields } from "contentful";
 
-export interface PageDto {
+export interface ContentPayloadDto {
   name: string;
+  payloadId: string;
   content: EntryFields.RichText;
 }

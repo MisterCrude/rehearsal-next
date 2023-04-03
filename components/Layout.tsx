@@ -1,6 +1,7 @@
-import { BRAND_NAME } from "@/utils/constants";
+import { BRAND_NAME } from "@/constants";
 import Box from "@mui/material/Box";
 import { PropsWithChildren } from "react";
+import Cookiebar from "./CookieBar";
 import Footer from "./Footer";
 import Header from "./Header";
 import Main from "./Main";
@@ -11,6 +12,7 @@ export default function Layout({ children }: PropsWithChildren) {
       <Header />
       <Main>{children}</Main>
       <Footer title={BRAND_NAME} />
+      <Cookiebar message="This is a success message!" />
     </Box>
   );
 }

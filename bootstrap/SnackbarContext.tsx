@@ -1,4 +1,5 @@
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import Box from "@mui/material/Box";
 import Snackbar from "@mui/material/Snackbar";
 import { PropsWithChildren, createContext, useContext, useState } from "react";
 
@@ -48,14 +49,16 @@ export const SnackbarProvider = ({ children }: PropsWithChildren) => {
         autoHideDuration={autoHideDuration}
         onClose={handleClose}
       >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          onClose={handleClose}
-          severity={severity}
-        >
-          {message}
-        </MuiAlert>
+        <Box>
+          <MuiAlert
+            elevation={6}
+            variant="filled"
+            onClose={handleClose}
+            severity={severity}
+          >
+            {message}
+          </MuiAlert>
+        </Box>
       </Snackbar>
     </SnackbarContext.Provider>
   );
