@@ -1,14 +1,14 @@
-import { useGetContentPayload } from "@/api/content-payload";
+import { useGetContentPayload } from "@/api/rest/content-payload";
 import { BRAND_NAME } from "@/constants";
 import { richTextToComponents } from "@/utils/mappers/richTextToComponents";
 import Box from "@mui/material/Box";
 import { PropsWithChildren } from "react";
-import Cookiebar from "./Cookiebar";
-import Footer from "./Footer";
-import Header from "./Header";
-import Main from "./Main";
+import Cookiebar from "../components/Cookiebar";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Main from "../components/Main";
 
-export default function Layout({ children }: PropsWithChildren) {
+export default function Primary({ children }: PropsWithChildren) {
   const cookieContent = useGetContentPayload("cookie-content");
 
   return (

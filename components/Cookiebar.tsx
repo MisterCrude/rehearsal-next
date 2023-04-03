@@ -1,5 +1,5 @@
 import { COOKIE_ACCEPTED } from "@/constants";
-import { getItem, setItem } from "@/utils/localStorage";
+import { getItem, setItem } from "@/services/localStorage";
 import CookieIcon from "@mui/icons-material/Cookie";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Box from "@mui/material/Box";

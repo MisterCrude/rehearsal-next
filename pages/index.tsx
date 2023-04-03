@@ -1,9 +1,9 @@
 import Filters, { ALL_INDEX } from "@/components/Filters";
-import Layout from "@/components/Layout";
 import StudioCard from "@/components/StudioCard";
 import { getDistricts } from "@/contentful-api/district";
 import { getServices } from "@/contentful-api/service";
 import { getStudios } from "@/contentful-api/studio";
+import Primary from "@/layouts/Primary";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { InferGetServerSidePropsType } from "next";
@@ -28,7 +28,7 @@ export default function Home({
   };
 
   return (
-    <Layout>
+    <Primary>
       <Filters districts={districts} onChange={handleFilterChange} />
 
       {/* Move to separate component */}
@@ -62,7 +62,7 @@ export default function Home({
           <StudioCard key={studio.id} studio={studio} />
         ))}
       </Stack>
-    </Layout>
+    </Primary>
   );
 }
 

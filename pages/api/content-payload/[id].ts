@@ -1,4 +1,4 @@
-import { ContentPayloadDto } from "@/api/content-payload";
+import { ContentPayloadDto } from "@/api/rest/content-payload";
 import { getContentPayload } from "@/contentful-api/contentPayload";
 import type { NextApiRequest, NextApiResponse } from "next";
 

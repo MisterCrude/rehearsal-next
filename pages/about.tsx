@@ -1,12 +1,12 @@
-import Layout from "@/components/Layout";
 import { getContentPayload } from "@/contentful-api/contentPayload";
+import Primary from "@/layouts/Primary";
 import { richTextToComponents } from "@/utils/mappers/richTextToComponents";
 import { InferGetServerSidePropsType } from "next";
 
 export default function About({
   payload,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  return <Layout>{richTextToComponents(payload.content)}</Layout>;
+  return <Primary>{richTextToComponents(payload.content)}</Primary>;
 }
 
 export async function getServerSideProps() {

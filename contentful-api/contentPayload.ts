@@ -1,4 +1,4 @@
-import { ContentPayloadDto } from "@/api/content-payload";
+import { ContentPayloadDto } from "@/api/rest/content-payload";
 import contentfulApiClient from "./contentfulApiClient";
 
 export const getContentPayload = async (

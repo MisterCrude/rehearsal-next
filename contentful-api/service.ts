@@ -1,4 +1,4 @@
-import { Service, ServiceDto } from "@/api/studio";
+import { Service, ServiceDto } from "@/api/rest/studio";
 import contentfulApiClient from "./contentfulApiClient";
 
 export const getServices = async (): Promise<Service[]> => {
