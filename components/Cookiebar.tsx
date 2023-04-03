@@ -4,10 +4,10 @@ import CookieIcon from "@mui/icons-material/Cookie";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
-import { forwardRef, useEffect, useState } from "react";
+import { ReactNode, forwardRef, useEffect, useState } from "react";
 
 interface CookiebarProps {
-  message: string;
+  message: ReactNode | string;
   buttonText?: string;
 }
 
@@ -35,7 +35,6 @@ export default function Cookiebar({
   const [isVisible, setIsVisible] = useState(false);
 
   const handleClose = () => {
-    console.log(1);
     setIsVisible(false);
     setItem<boolean>(COOKIE_ACCEPTED, true);
   };

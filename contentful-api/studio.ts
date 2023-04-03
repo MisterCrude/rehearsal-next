@@ -2,10 +2,10 @@ import { Studio, StudioDto } from "@/dto/studio";
 import { dtoToDistrict } from "@/utils/mappers/dtoToDistrict";
 import { dtoToImage } from "@/utils/mappers/dtoToImage";
 import { dtoToServices } from "@/utils/mappers/dtoToServices";
-import apiClient from "./apiClient";
+import contentfulApiClient from "./contentfulApiClient";
 
 export const getStudios = async (): Promise<Studio[]> => {
-  const { items } = await apiClient.getEntries<StudioDto>({
+  const { items } = await contentfulApiClient.getEntries<StudioDto>({
     content_type: "studio",
   });
 

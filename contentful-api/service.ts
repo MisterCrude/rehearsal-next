@@ -1,8 +1,8 @@
-import { Service, ServiceDto } from "@/dto/studio";
-import apiClient from "./apiClient";
+import { Service, ServiceDto } from "@/api/studio";
+import contentfulApiClient from "./contentfulApiClient";
 
 export const getServices = async (): Promise<Service[]> => {
-  const { items } = await apiClient.getEntries<ServiceDto>({
+  const { items } = await contentfulApiClient.getEntries<ServiceDto>({
     content_type: "service",
   });
 

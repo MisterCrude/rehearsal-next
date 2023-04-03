@@ -1,4 +1,4 @@
-import { Service, ServiceDto } from "@/dto/studio";
+import { Service, ServiceDto } from "@/api/studio";
 import { Entry } from "contentful";
 
 export const dtoToServices = (entries: Entry<ServiceDto>[]): Service[] =>
