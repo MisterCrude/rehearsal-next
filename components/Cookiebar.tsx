@@ -45,10 +45,7 @@ export default function Cookiebar({
   }, []);
 
   return (
-    <Snackbar
-      open={isVisible}
-      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-    >
+    <Snackbar open={isVisible}>
       <Alert>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Box

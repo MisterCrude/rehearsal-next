@@ -1,10 +1,10 @@
-import { ContentPayloadDto } from "@/api/rest/content-payload";
-import contentfulApiClient from "./contentfulApiClient";
+import { ContentPayloadDto } from "@/api/dto/content-payload";
+import apiClient from "./apiClient";
 
 export const getContentPayload = async (
   pageName: string
 ): Promise<ContentPayloadDto> => {
-  const { items } = await contentfulApiClient.getEntries<ContentPayloadDto>({
+  const { items } = await apiClient.getEntries<ContentPayloadDto>({
     content_type: "contentPayload",
     limit: 1,
     "fields.payloadId": pageName,

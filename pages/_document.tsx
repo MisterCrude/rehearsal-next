@@ -1,16 +1,16 @@
-import * as React from "react";
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentProps,
-  DocumentContext,
-} from "next/document";
+import { createEmotionCache } from "@/utils/createEmotionCache";
+import { theme } from "@/utils/theme";
 import createEmotionServer from "@emotion/server/create-instance";
 import { AppType } from "next/app";
-import { theme } from "@/utils/theme";
-import { createEmotionCache } from "@/utils/createEmotionCache";
+import Document, {
+  DocumentContext,
+  DocumentProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from "next/document";
+import * as React from "react";
 import { AppProps } from "./_app";
 
 interface CustomDocumentProps extends DocumentProps {

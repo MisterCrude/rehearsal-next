@@ -1,4 +1,4 @@
-import { getContentPayload } from "@/contentful-api/contentPayload";
+import { getContentPayload } from "@/api/contentful/content-payload";
 import Primary from "@/layouts/Primary";
 import { richTextToComponents } from "@/utils/mappers/richTextToComponents";
 import { InferGetServerSidePropsType } from "next";
