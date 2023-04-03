@@ -2,6 +2,7 @@ import { COOKIE_ACCEPTED } from "@/constants";
 import { getItem, setItem } from "@/utils/localStorage";
 import CookieIcon from "@mui/icons-material/Cookie";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import { ReactNode, forwardRef, useEffect, useState } from "react";
@@ -44,17 +45,30 @@ export default function Cookiebar({
   }, []);
 
   return (
-    <Snackbar open={isVisible}>
+    <Snackbar
+      open={isVisible}
+      anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+    >
       <Alert>
-        {message}
-        <Button
-          color="inherit"
-          size="small"
-          sx={{ marginLeft: 2 }}
-          onClick={handleClose}
-        >
-          {buttonText}
-        </Button>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              "& p": {
+                margin: 0,
+              },
+            }}
+          >
+            {message}
+          </Box>
+          <Button
+            color="inherit"
+            size="small"
+            sx={{ marginLeft: 2, fontWeight: "bold" }}
+            onClick={handleClose}
+          >
+            {buttonText}
+          </Button>
+        </Box>
       </Alert>
     </Snackbar>
   );
