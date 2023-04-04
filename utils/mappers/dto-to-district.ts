@@ -1,4 +1,4 @@
-import { District, DistrictDto } from "@/api/dto/studio";
+import { District, DistrictDto } from "@/resources/dto/studio";
 import { Entry } from "contentful";
 
 export const dtoToDistrict = (entry: Entry<DistrictDto>): District => ({

@@ -1,4 +1,4 @@
-import { ContentPayloadDto } from "@/api/dto/content-payload";
+import { ContentPayloadDto } from "@/resources/dto/content-payload";
 import { useQuery } from "react-query";
 import apiPaths from "../apiPaths";
 

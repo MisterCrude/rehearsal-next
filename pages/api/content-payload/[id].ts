@@ -1,5 +1,5 @@
-import { getContentPayload } from "@/api/contentful/content-payload";
-import { ContentPayloadDto } from "@/api/dto/content-payload";
+import { getContentPayload } from "@/resources/contentful/content-payload";
+import { ContentPayloadDto } from "@/resources/dto/content-payload";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

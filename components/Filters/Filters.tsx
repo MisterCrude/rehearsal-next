@@ -1,4 +1,4 @@
-import { District } from "@/api/dto/studio";
+import { District } from "@/resources/dto/studio";
 import DomainIcon from "@mui/icons-material/Domain";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";

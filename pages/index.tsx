@@ -1,9 +1,9 @@
-import { getDistricts } from "@/api/contentful/district";
-import { getServices } from "@/api/contentful/service";
-import { getStudios } from "@/api/contentful/studio";
 import Filters, { ALL_INDEX } from "@/components/Filters";
 import StudioCard from "@/components/StudioCard";
 import Primary from "@/layouts/Primary";
+import { getDistricts } from "@/resources/contentful/district";
+import { getServices } from "@/resources/contentful/service";
+import { getStudios } from "@/resources/contentful/studio";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { InferGetServerSidePropsType } from "next";

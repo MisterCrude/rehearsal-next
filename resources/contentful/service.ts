@@ -1,4 +1,4 @@
-import { Service, ServiceDto } from "@/api/dto/studio";
+import { Service, ServiceDto } from "@/resources/dto/studio";
 import apiClient from "./apiClient";
 
 export const getServices = async (): Promise<Service[]> => {

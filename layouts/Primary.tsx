@@ -1,5 +1,5 @@
-import { useGetContentPayload } from "@/api/rest/content-payload";
 import { BRAND_NAME } from "@/constants";
+import { useGetContentPayload } from "@/resources/rest/content-payload";
 import { richTextToComponents } from "@/utils/mappers/richTextToComponents";
 import Box from "@mui/material/Box";
 import { PropsWithChildren } from "react";
