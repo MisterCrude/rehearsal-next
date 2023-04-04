@@ -21,7 +21,9 @@ export default function StudioCard({ studio }: StudioCard) {
 
   return (
     <CardActionArea component="a" href={link} target="_blank">
-      <Card sx={{ display: "flex" }}>
+      <Card
+        sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" } }}
+      >
         <CardMedia
           title={image?.title}
           sx={{ display: "flex", flexBasis: 200 }}
@@ -56,9 +58,15 @@ export default function StudioCard({ studio }: StudioCard) {
             variant="subtitle1"
             color="text.secondary"
             component="div"
-            sx={{ marginBottom: 2, alignItems: "center", display: "flex" }}
+            sx={{
+              marginBottom: 2,
+              alignItems: "center",
+              display: "flex",
+              lineHeight: 1.4,
+            }}
           >
-            <RoomOutlinedIcon sx={{ mr: 0.5 }} /> {address}
+            <RoomOutlinedIcon sx={{ mr: 0.5 }} />
+            {address}
           </Typography>
 
           <Box
@@ -80,7 +88,12 @@ export default function StudioCard({ studio }: StudioCard) {
               ))}
             </Stack>
 
-            <Typography variant="subtitle1" color="primary" align="right">
+            <Typography
+              variant="subtitle1"
+              color="primary"
+              align="right"
+              sx={{ display: { xs: "none", md: "block" } }}
+            >
               Sprawź{" "}
               <OpenInNewIcon sx={{ fontSize: "inherit", marginBottom: -0.2 }} />
             </Typography>

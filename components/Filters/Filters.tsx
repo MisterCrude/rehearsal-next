@@ -1,5 +1,6 @@
 import { District } from "@/resources/dto/studio";
 import DomainIcon from "@mui/icons-material/Domain";
+import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
 import DistrictChip from "./DistrictChip";
@@ -30,21 +31,23 @@ export default function Filters({ districts, onChange }: FiltersProps) {
   };
 
   return (
-    <Stack spacing={1.5} direction="row" sx={{ marginBottom: 4 }}>
-      <DistrictChip
-        onSelect={() => handleSelect(ALL_INDEX)}
-        name="Wszystkie"
-        selected={selectedFilters.includes(ALL_INDEX)}
-      />
-      {districts.map((district) => (
+    <Box sx={{ overflowX: "auto" }}>
+      <Stack spacing={1.5} direction="row" sx={{ marginBottom: 2 }}>
         <DistrictChip
-          icon={<DomainIcon />}
-          onSelect={() => handleSelect(district.id)}
-          name={district.name}
-          selected={selectedFilters.includes(district.id)}
-          key={district.id}
+          onSelect={() => handleSelect(ALL_INDEX)}
+          name="Wszystkie"
+          selected={selectedFilters.includes(ALL_INDEX)}
         />
-      ))}
-    </Stack>
+        {districts.map((district) => (
+          <DistrictChip
+            icon={<DomainIcon />}
+            onSelect={() => handleSelect(district.id)}
+            name={district.name}
+            selected={selectedFilters.includes(district.id)}
+            key={district.id}
+          />
+        ))}
+      </Stack>
+    </Box>
   );
 }

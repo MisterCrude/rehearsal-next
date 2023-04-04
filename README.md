@@ -55,6 +55,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Contentful](https://www.contentful.com/) - headless CMS
   - [Strapi](https://strapi.io/features) - open source alternative
 
+#### Development
+
+- [Ngrok](ngrok.com) - share a localhost app across devices
+
 ### FAQ
 
 - [TS with contentful](https://www.contentful.com/developers/docs/javascript/tutorials/typescript-in-javascript-client-library/)

@@ -30,7 +30,6 @@ export default function Home({
   return (
     <Primary>
       <Filters districts={districts} onChange={handleFilterChange} />
-
       {/* Move to separate component */}
       <Typography
         sx={{
@@ -42,7 +41,6 @@ export default function Home({
       >
         {filteredStudios.length} ofert
       </Typography>
-
       {!filteredStudios.length && (
         <Typography
           variant="h4"
