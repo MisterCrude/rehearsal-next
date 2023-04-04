@@ -49,6 +49,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### Services
 
+- [Clicky](https://clicky.com/) - analytics tool
 - [Vercel](https://vercel.com/) - deployment
 - [Auth0](https://auth0.com/) - authentication
 - [Contentful](https://www.contentful.com/) - headless CMS

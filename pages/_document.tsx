@@ -1,3 +1,4 @@
+import AnalyticsScript from "@/services/analyticsScript";
 import { createEmotionCache } from "@/utils/createEmotionCache";
 import { theme } from "@/utils/theme";
 import createEmotionServer from "@emotion/server/create-instance";
@@ -32,6 +33,7 @@ export default function CustomDocument({
       <body>
         <Main />
         <NextScript />
+        <AnalyticsScript />
       </body>
     </Html>
   );

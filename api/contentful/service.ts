@@ -4,6 +4,7 @@ import apiClient from "./apiClient";
 export const getServices = async (): Promise<Service[]> => {
   const { items } = await apiClient.getEntries<ServiceDto>({
     content_type: "service",
+    order: "fields.name",
   });
 
   const services = items.map((serviceDto) => {

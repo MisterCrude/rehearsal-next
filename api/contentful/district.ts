@@ -4,6 +4,7 @@ import contentfulApiClient from "./apiClient";
 export const getDistricts = async (): Promise<District[]> => {
   const { items } = await contentfulApiClient.getEntries<DistrictDto>({
     content_type: "district",
+    order: "fields.name",
   });
 
   const districts = items.map((districtDto) => {

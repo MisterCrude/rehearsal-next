@@ -7,6 +7,7 @@ import apiClient from "./apiClient";
 export const getStudios = async (): Promise<Studio[]> => {
   const { items } = await apiClient.getEntries<StudioDto>({
     content_type: "studio",
+    order: "fields.title",
   });
 
   const studios = items.map((studioDto) => {
