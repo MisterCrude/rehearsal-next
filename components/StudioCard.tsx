@@ -1,4 +1,4 @@
-import { Studio } from "@/api/rest/studio";
+import { Studio } from "@/api/dto/studio";
 import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
