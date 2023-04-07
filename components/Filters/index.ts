@@ -1,1 +1,1 @@
-export { ALL_INDEX, default } from "./Filters";
+export { default } from "./Filters";
