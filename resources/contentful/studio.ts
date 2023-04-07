@@ -12,8 +12,7 @@ export const getStudios = async (): Promise<Studio[]> => {
 
   const studios = items.map((studioDto) => {
     const image = studioDto.fields.image && dtoToImage(studioDto.fields.image);
-    const services =
-      studioDto.fields.services && dtoToServices(studioDto.fields.services);
+    const services = dtoToServices(studioDto.fields.services);
     const district = dtoToDistrict(studioDto.fields.district);
     const id = studioDto.sys.id;
 

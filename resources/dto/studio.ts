@@ -22,17 +22,17 @@ export interface StudioDto {
   district: Entry<DistrictDto>;
   link: string;
   title: string;
+  services: Entry<ServiceDto>[];
   description?: EntryFields.RichText;
   email?: string;
   image?: Asset;
   phone?: string;
-  services?: Entry<ServiceDto>[];
 }
 
 export interface Studio
   extends Omit<StudioDto, "district" | "services" | "image"> {
   id: string;
   district: District;
-  services?: Service[];
+  services: Service[];
   image?: ImageField;
 }

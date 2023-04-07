@@ -1,4 +1,5 @@
-import Filters, { ALL_INDEX } from "@/components/Filters";
+import Filters from "@/components/Filters";
+import { Filter } from "@/components/Filters/types";
 import StudioCard from "@/components/StudioCard";
 import Primary from "@/layouts/Primary";
 import { getDistricts } from "@/resources/contentful/district";
@@ -12,24 +13,35 @@ import { useState } from "react";
 export default function Home({
   studios,
   districts,
+  services,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [filteredStudios, setFilteredStudios] = useState(studios);
 
-  const handleFilterChange = (selectedDistricts: string[]) => {
-    if (selectedDistricts.includes(ALL_INDEX)) {
-      return setFilteredStudios(studios);
+  const handleFilterChange = (filter: Filter) => {
+    let selected = studios;
+
+    if (filter.district.length) {
+      selected = selected.filter(({ district }) =>
+        filter.district.includes(district.id)
+      );
     }
 
-    const selected = studios.filter(({ district }) =>
-      selectedDistricts.includes(district.id)
-    );
+    if (filter.service.length) {
+      selected = selected.filter(({ services }) =>
+        services.some(({ id }) => filter.service.includes(id))
+      );
+    }
 
     return setFilteredStudios(selected);
   };
 
   return (
     <Primary>
-      <Filters districts={districts} onChange={handleFilterChange} />
+      <Filters
+        districts={districts}
+        services={services}
+        onChange={handleFilterChange}
+      />
       {/* Move to separate component */}
       <Typography
         sx={{
