@@ -1,4 +1,4 @@
-import { SnackbarProvider } from "@/context/SnackbarContext";
+import { SnackbarProvider } from "@/contexts/SnackbarContext";
 import { createEmotionCache } from "@/utils/createEmotionCache";
 import { theme } from "@/utils/theme";
 import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";

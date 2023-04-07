@@ -63,3 +63,20 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 - [TS with contentful](https://www.contentful.com/developers/docs/javascript/tutorials/typescript-in-javascript-client-library/)
 - [Rendering RichText in contentful](https://www.contentful.com/developers/docs/javascript/tutorials/rendering-contentful-rich-text-with-javascript/)
+
+### App arhitecture
+
+- `components/`- reusable components
+- `contexts/` - custom contexts
+- `hooks/` - custom hooks
+- `layouts/` - components that are composed of pages
+- `pages/` - components that are composed of templates
+- `public/` - public files
+- `resources/ `- api calls splited by resource
+- `services/ `- services
+- `types/ `- typescript types
+- `utils/ `- utility functions
+- `.env `- environment variables
+- `.env.`local - local environment variables
+- `.next/` - next build
+- `.vscode/` - vscode config
