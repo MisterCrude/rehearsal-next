@@ -85,7 +85,7 @@ export default function Filters({
 
           {!isFiltersEmpty && (
             <Button
-              color="inherit"
+              color="error"
               endIcon={<CloseIcon />}
               sx={{ textTransform: "none" }}
               onClick={handleClear}

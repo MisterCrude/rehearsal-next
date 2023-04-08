@@ -47,9 +47,17 @@ export default function Cookiebar({
   return (
     <Snackbar open={isVisible}>
       <Alert>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            flexDirection: { md: "row", xs: "column" },
+          }}
+        >
           <Box
             sx={{
+              paddingRight: { md: 2 },
+              paddingBottom: { xs: 2 },
               "& p": {
                 margin: 0,
               },
@@ -60,7 +68,11 @@ export default function Cookiebar({
           <Button
             color="inherit"
             size="small"
-            sx={{ marginLeft: 2, fontWeight: "bold" }}
+            sx={{
+              fontWeight: "bold",
+              display: "flex",
+              flexShrink: 0,
+            }}
             onClick={handleClose}
           >
             {buttonText}

@@ -80,7 +80,12 @@ export default function MultiSelect({
         endIcon={<ExpandMoreIcon />}
         startIcon={icon}
         onClick={handleTogglePopover}
-        sx={{ borderRadius: 6, textTransform: "none" }}
+        sx={{
+          borderRadius: 6,
+          textTransform: "none",
+          display: "flex",
+          flexShrink: 0,
+        }}
       >
         {selected.length ? `Wybrano: ${selected.length}` : title}
       </Button>
