@@ -57,7 +57,7 @@ export default function Filters({
         alignItems: "center",
       }}
     >
-      <Box sx={{ overflowX: "auto" }}>
+      <Box sx={{ overflowX: "auto", display: "flex" }}>
         <Stack spacing={2} direction="row" sx={{ marginY: 2 }}>
           <MultiSelect
             icon={<DomainOutlinedIcon />}
@@ -82,19 +82,19 @@ export default function Filters({
             selected={selectedFilters.service}
             onSelect={handleSelect}
           />
+
+          {!isFiltersEmpty && (
+            <Button
+              color="inherit"
+              endIcon={<CloseIcon />}
+              sx={{ textTransform: "none" }}
+              onClick={handleClear}
+            >
+              Wyczyść
+            </Button>
+          )}
         </Stack>
       </Box>
-
-      {!isFiltersEmpty && (
-        <Button
-          color="inherit"
-          endIcon={<CloseIcon />}
-          sx={{ textTransform: "none" }}
-          onClick={handleClear}
-        >
-          Wyczyść
-        </Button>
-      )}
     </Box>
   );
 }
