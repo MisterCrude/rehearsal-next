@@ -19,6 +19,7 @@ export interface Service extends ServiceDto {
 
 export interface StudioDto {
   address: string;
+  location: EntryFields.Location;
   district: Entry<DistrictDto>;
   link: string;
   title: string;
@@ -35,4 +36,5 @@ export interface Studio
   district: District;
   services: Service[];
   image?: ImageField;
+  distance?: number;
 }

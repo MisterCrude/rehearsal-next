@@ -1,5 +1,6 @@
 import Filters from "@/components/Filters";
 import { Filter } from "@/components/Filters/types";
+import { calculateDistance } from "@/components/Filters/utils";
 import StudioCard from "@/components/StudioCard";
 import Primary from "@/layouts/Primary";
 import { getDistricts } from "@/resources/contentful/district";
@@ -20,16 +21,33 @@ export default function Home({
   const handleFilterChange = (filter: Filter) => {
     let selected = studios;
 
+    // Filter by district
     if (filter.district.length) {
       selected = selected.filter(({ district }) =>
         filter.district.includes(district.id)
       );
     }
 
+    // FIlter by service
     if (filter.service.length) {
       selected = selected.filter(({ services }) =>
         services.some(({ id }) => filter.service.includes(id))
       );
+    }
+
+    // Filter by location
+    if (filter.location) {
+      selected = selected.map((studio) => {
+        const distance = calculateDistance(studio.location, filter.location!);
+        return {
+          ...studio,
+          distance: Number(distance.toFixed(2)),
+        };
+      });
+
+      selected = selected.sort((a, b) => {
+        return a.distance! - b.distance!;
+      });
     }
 
     return setFilteredStudios(selected);

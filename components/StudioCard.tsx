@@ -17,7 +17,7 @@ interface StudioCard {
 }
 
 export default function StudioCard({ studio }: StudioCard) {
-  const { title, image, link, address, district, services } = studio;
+  const { title, image, link, address, district, services, distance } = studio;
 
   return (
     <CardActionArea component="a" href={link} target="_blank">
@@ -66,7 +66,7 @@ export default function StudioCard({ studio }: StudioCard) {
             }}
           >
             <RoomOutlinedIcon sx={{ mr: 0.5 }} />
-            {address}
+            {address} {distance && `(${distance} km od Ciebie)`}
           </Typography>
 
           <Box
