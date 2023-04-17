@@ -1,6 +1,6 @@
 import Filters from "@/components/Filters";
+import LocationButton from "@/components/Filters/LocationButton";
 import { Filter } from "@/components/Filters/types";
-import { calculateDistance } from "@/components/Filters/utils";
 import StudioCard from "@/components/StudioCard";
 import Primary from "@/layouts/Primary";
 import { getDistricts } from "@/resources/contentful/district";
@@ -8,6 +8,7 @@ import { getServices } from "@/resources/contentful/service";
 import { getStudios } from "@/resources/contentful/studio";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { distance as calculateDistance } from "@turf/turf";
 import { InferGetServerSidePropsType } from "next";
 import { useState } from "react";
 
@@ -18,27 +19,31 @@ export default function Home({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [filteredStudios, setFilteredStudios] = useState(studios);
 
-  const handleFilterChange = (filter: Filter) => {
+  const handleFilterChange = (filter: Partial<Filter>) => {
     let selected = studios;
 
     // Filter by district
-    if (filter.district.length) {
+    if (filter.district?.length) {
       selected = selected.filter(({ district }) =>
-        filter.district.includes(district.id)
+        filter.district?.includes(district.id)
       );
     }
 
     // FIlter by service
-    if (filter.service.length) {
+    if (filter.service?.length) {
       selected = selected.filter(({ services }) =>
-        services.some(({ id }) => filter.service.includes(id))
+        services.some(({ id }) => filter.service?.includes(id))
       );
     }
 
     // Filter by location
     if (filter.location) {
       selected = selected.map((studio) => {
-        const distance = calculateDistance(studio.location, filter.location!);
+        const distance = calculateDistance(
+          [filter.location![1], filter.location![0]],
+          [studio.location.lat, studio.location.lon],
+          { units: "kilometers" }
+        );
         return {
           ...studio,
           distance: Number(distance.toFixed(2)),
@@ -60,7 +65,10 @@ export default function Home({
         services={services}
         onChange={handleFilterChange}
       />
-      {/* Move to separate component */}
+
+      <LocationButton onChange={handleFilterChange} />
+
+      {/* TODO Move to separate component */}
       <Typography
         sx={{
           marginBottom: 2,

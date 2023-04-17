@@ -1,5 +1,4 @@
 import { District, Service } from "@/resources/dto/studio";
-import { Location } from "@/types/misc";
 import CloseIcon from "@mui/icons-material/Close";
 import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import SpeakerIcon from "@mui/icons-material/Speaker";
@@ -7,7 +6,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { useState } from "react";
-import LocationButton from "./LocationButton";
 import MultiSelect from "./MultiSelect";
 import { Filter, FilterNames } from "./types";
 
@@ -28,18 +26,20 @@ export default function Filters({
   services,
   onChange,
 }: FiltersProps) {
-  const [isLodingLocation, setIsLodingLocation] = useState(false);
   const [selectedFilters, setSelectedFilters] =
     useState<Filter>(defaultFilters);
 
-  const handleSelect = (name: string, selected: string[] | Location) => {
+  const handleSelect = (name: string, selected: string[] | number[]) => {
     setSelectedFilters((prevState) => {
       let newState: Filter;
 
       switch (name) {
         // Filter by `Location`
         case FilterNames.Location:
-          newState = { ...prevState, location: selected as Location };
+          newState = {
+            ...prevState,
+            [FilterNames.Location]: selected as number[],
+          };
           break;
         // Filter by `District` or `Service`
         default:
@@ -54,30 +54,6 @@ export default function Filters({
     });
   };
 
-  const handleSortByLocation = () => {
-    if (!("geolocation" in navigator)) {
-      // TODO: Show alert to user
-      console.log("Geolocation is not supported by this browser.");
-      return;
-    }
-
-    setIsLodingLocation(true);
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }: GeolocationPosition) => {
-        setIsLodingLocation(false);
-        handleSelect(FilterNames.Location, {
-          latitude: coords.latitude,
-          longitude: coords.longitude,
-        });
-      },
-      (error: GeolocationPositionError) => {
-        // TODO: Show alert to user
-        setIsLodingLocation(false);
-        console.error(error);
-      }
-    );
-  };
-
   const handleClear = () => {
     setSelectedFilters(defaultFilters);
     onChange(defaultFilters);
@@ -89,8 +65,6 @@ export default function Filters({
 
   return (
     <>
-      {JSON.stringify(selectedFilters.location)}
-
       <Box
         sx={{
           display: "flex",
@@ -124,13 +98,6 @@ export default function Filters({
               }))}
               selected={selectedFilters.service}
               onSelect={handleSelect}
-            />
-
-            {/* Location filter */}
-            <LocationButton
-              isLoading={isLodingLocation}
-              isActive={Boolean(selectedFilters[FilterNames.Location])}
-              onClick={handleSortByLocation}
             />
 
             {/* Clear filters button */}

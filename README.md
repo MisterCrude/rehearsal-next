@@ -46,6 +46,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Contentful](https://www.npmjs.com/package/contentful)
 - [lodash](https://lodash.com/)
 - [React-query](https://tanstack.com/query)
+- [Turf](https://turfjs.org/)
+- [mapbox-gl]()
 
 ### Services
 
