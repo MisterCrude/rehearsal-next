@@ -1,7 +1,7 @@
-import { Studio } from "@/resources/dto/studio";
 import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
+import RouteIcon from "@mui/icons-material/Route";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -11,6 +11,8 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import Image from "next/image";
+
+import { Studio } from "@/resources/dto/studio";
 
 interface StudioCard {
   studio: Studio;
@@ -59,14 +61,34 @@ export default function StudioCard({ studio }: StudioCard) {
             color="text.secondary"
             component="div"
             sx={{
-              marginBottom: 2,
-              alignItems: "center",
+              marginBottom: 1,
               display: "flex",
+              flexWrap: "wrap",
               lineHeight: 1.4,
             }}
           >
-            <RoomOutlinedIcon sx={{ mr: 0.5 }} />
-            {address} {distance && `(${distance} km od Ciebie)`}
+            <Box
+              component="span"
+              sx={{
+                alignItems: "flex-start",
+                display: "flex",
+                mr: distance ? 1 : 0,
+                mb: distance ? 1 : 0,
+              }}
+            >
+              <RoomOutlinedIcon sx={{ mr: 0.5 }} />
+              {address}
+            </Box>
+
+            <Box
+              sx={{ alignItems: "flex-start", display: "flex", mr: 1, mb: 1 }}
+            >
+              {distance && (
+                <>
+                  <RouteIcon sx={{ mr: 0.5 }} /> ~{distance} km od Ciebie
+                </>
+              )}
+            </Box>
           </Typography>
 
           <Box

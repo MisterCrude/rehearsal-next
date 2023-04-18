@@ -41,14 +41,17 @@ export default function Home({
     // Filter by location
     if (filter.location) {
       selected = selected.map((studio) => {
+        // TODO calculate real distance using Distance API from Mapbox
+        // https://docs.mapbox.com/help/tutorials/route-finder-with-turf-mapbox-directions/
         const distance = calculateDistance(
           [filter.location![1], filter.location![0]],
           [studio.location.lat, studio.location.lon],
           { units: "kilometers" }
         );
+
         return {
           ...studio,
-          distance: Number(distance.toFixed(2)),
+          distance: Math.round(distance) + 2,
         };
       });
 
