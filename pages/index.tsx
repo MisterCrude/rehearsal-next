@@ -1,3 +1,10 @@
+import { useState } from "react";
+
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import { distance as calculateDistance } from "@turf/turf";
+import { InferGetServerSidePropsType } from "next";
+
 import Filters from "@/components/Filters";
 import LocationButton from "@/components/Filters/LocationButton";
 import { Filter } from "@/components/Filters/types";
@@ -6,11 +13,6 @@ import Primary from "@/layouts/Primary";
 import { getDistricts } from "@/resources/contentful/district";
 import { getServices } from "@/resources/contentful/service";
 import { getStudios } from "@/resources/contentful/studio";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import { distance as calculateDistance } from "@turf/turf";
-import { InferGetServerSidePropsType } from "next";
-import { useState } from "react";
 
 export default function Home({
   studios,
