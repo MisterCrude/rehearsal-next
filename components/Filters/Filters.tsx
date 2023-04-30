@@ -1,11 +1,15 @@
-import { District, Service } from "@/resources/dto/studio";
+import { MutableRefObject, useRef, useState } from "react";
+
 import CloseIcon from "@mui/icons-material/Close";
 import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import SpeakerIcon from "@mui/icons-material/Speaker";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
-import { useState } from "react";
+
+import LocationInput from "@/components/Filters/LocationInput";
+import { District, Service } from "@/resources/dto/studio";
+
 import MultiSelect from "./MultiSelect";
 import { Filter, FilterNames } from "./types";
 
@@ -28,6 +32,8 @@ export default function Filters({
 }: FiltersProps) {
   const [selectedFilters, setSelectedFilters] =
     useState<Filter>(defaultFilters);
+
+  const locationInputRef = useRef<MapboxGeocoder>();
 
   const handleSelect = (name: string, selected: string[] | number[]) => {
     setSelectedFilters((prevState) => {
@@ -57,6 +63,7 @@ export default function Filters({
   const handleClear = () => {
     setSelectedFilters(defaultFilters);
     onChange(defaultFilters);
+    locationInputRef.current?.clear();
   };
 
   const isFiltersEmpty = Object.values(selectedFilters).every((filter) =>
@@ -65,6 +72,14 @@ export default function Filters({
 
   return (
     <>
+      {/* Distance sort */}
+      <Box sx={{ marginBottom: 2 }}>
+        <LocationInput
+          onSelect={handleSelect}
+          locationInputRef={locationInputRef}
+        />
+      </Box>
+
       <Box
         sx={{
           display: "flex",
@@ -72,8 +87,8 @@ export default function Filters({
           alignItems: "center",
         }}
       >
-        <Box sx={{ overflowX: "auto", display: "flex" }}>
-          <Stack spacing={2} direction="row" sx={{ marginY: 2 }}>
+        <Box sx={{ overflowX: "auto", paddingBottom: 1 }}>
+          <Stack direction="row" spacing={2}>
             {/* District filter */}
             <MultiSelect
               icon={<DomainOutlinedIcon />}

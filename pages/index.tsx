@@ -6,7 +6,6 @@ import { distance as calculateDistance } from "@turf/turf";
 import { InferGetServerSidePropsType } from "next";
 
 import Filters from "@/components/Filters";
-import LocationButton from "@/components/Filters/LocationButton";
 import { Filter } from "@/components/Filters/types";
 import StudioCard from "@/components/StudioCard";
 import Primary from "@/layouts/Primary";
@@ -70,8 +69,6 @@ export default function Home({
         services={services}
         onChange={handleFilterChange}
       />
-
-      <LocationButton onChange={handleFilterChange} />
 
       {/* TODO Move to separate component */}
       <Typography
