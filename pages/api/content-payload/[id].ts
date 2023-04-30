@@ -1,6 +1,7 @@
+import type { NextApiRequest, NextApiResponse } from "next";
+
 import { getContentPayload } from "@/resources/contentful/content-payload";
 import { ContentPayloadDto } from "@/resources/dto/content-payload";
-import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,

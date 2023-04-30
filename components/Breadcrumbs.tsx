@@ -1,7 +1,8 @@
-import { Pages, routes } from "@/routes";
 import MUIBreadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
 import { useRouter } from "next/router";
+
+import { Pages, routes } from "@/routes";
 
 // TODO: Add support for dynamic routes
 // TODO: Add support for nested routes

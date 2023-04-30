@@ -1,8 +1,9 @@
+import { InferGetServerSidePropsType } from "next";
+
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Primary from "@/layouts/Primary";
 import { getContentPayload } from "@/resources/contentful/content-payload";
 import { richTextToComponents } from "@/utils/mappers/richTextToComponents";
-import { InferGetServerSidePropsType } from "next";
 
 export default function CookiePolicy({
   payload,

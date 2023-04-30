@@ -1,6 +1,5 @@
-import AnalyticsScript from "@/services/analyticsScript";
-import { createEmotionCache } from "@/utils/createEmotionCache";
-import { theme } from "@/utils/theme";
+import * as React from "react";
+
 import createEmotionServer from "@emotion/server/create-instance";
 import { AppType } from "next/app";
 import Document, {
@@ -11,7 +10,12 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import * as React from "react";
+
+import AnalyticsScript from "@/services/analyticsScript";
+import { createEmotionCache } from "@/utils/createEmotionCache";
+import { theme } from "@/utils/theme";
+
+
 import { AppProps } from "./_app";
 
 interface CustomDocumentProps extends DocumentProps {

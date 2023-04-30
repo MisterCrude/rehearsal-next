@@ -1,9 +1,10 @@
-import { Option } from "@/types/inputs";
 import Checkbox from "@mui/material/Checkbox";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+
+import { Option } from "@/types/inputs";
 
 interface SelectOptionProps {
   option: Option;

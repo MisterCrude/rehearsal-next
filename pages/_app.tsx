@@ -1,13 +1,15 @@
+import { QueryClient, QueryClientProvider } from "react-query";
+
+import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";
+import CssBaseline from "@mui/material/CssBaseline";
+import { AppProps as Props } from "next/app";
+import { Session } from "next-auth";
+import { SessionProvider } from "next-auth/react";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 import { SnackbarProvider } from "@/contexts/SnackbarContext";
 import { createEmotionCache } from "@/utils/createEmotionCache";
 import { theme } from "@/utils/theme";
-import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";
-import CssBaseline from "@mui/material/CssBaseline";
-import { Session } from "next-auth";
-import { SessionProvider } from "next-auth/react";
-import { AppProps as Props } from "next/app";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
