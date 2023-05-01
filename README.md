@@ -46,7 +46,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Contentful](https://www.npmjs.com/package/contentful)
 - [lodash](https://lodash.com/)
 - [React-query](https://tanstack.com/query)
-- [@turf/turf](https://turfjs.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- [@turf/turf](https://turfjs.org/) - geospatial analysis library
 - [@mapbox/mapbox-gl-geocoder](https://github.com/mapbox/mapbox-gl-geocoder)
 - [mapbox-gl](https://www.npmjs.com/package/mapbox-gl)
 
@@ -56,7 +57,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Vercel](https://vercel.com/) - deployment
 - [Auth0](https://auth0.com/) - authentication
 - [Contentful](https://www.contentful.com/) - headless CMS
-  - [Strapi](https://strapi.io/features) - open source alternative
+  - [Strapi](https://strapi.io/features) - `NOT USED YET` open source alternative
 
 #### Development
 
@@ -69,17 +70,17 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### App arhitecture
 
-- `components/`- reusable components
+- `components/`- reusable components, can contain not shared _subcomponents_, _utils_, _types_ if needed
 - `contexts/` - custom contexts
 - `hooks/` - custom hooks
 - `layouts/` - components that are composed of pages
 - `pages/` - components that are composed of templates
 - `public/` - public files
-- `resources/ `- api calls splited by resource
-- `services/ `- services
-- `types/ `- typescript types
+- `resources/ `- api calls split by resource
+- `services/ `- services, analytics, auth, etc
+- `types/ `- typescript shared application types
 - `utils/ `- utility functions
-- `.env `- environment variables
-- `.env.`local - local environment variables
+- `.env.local.example`- environment variables
+- `.env.local `- local environment variables
 - `.next/` - next build
 - `.vscode/` - vscode config

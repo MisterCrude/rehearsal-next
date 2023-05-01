@@ -26,5 +26,6 @@
     // "source.organizeImports": true,
     "source.addMissingImports": true,
     "source.fixAll.eslint": true
-  }
+  },
+  "cSpell.words": ["Cookiebar"]
 }

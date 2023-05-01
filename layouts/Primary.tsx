@@ -1,8 +1,11 @@
+import { PropsWithChildren } from "react";
+
+import Box from "@mui/material/Box";
+
 import { BRAND_NAME } from "@/constants";
 import { useGetContentPayload } from "@/resources/rest/content-payload";
 import { richTextToComponents } from "@/utils/mappers/richTextToComponents";
-import Box from "@mui/material/Box";
-import { PropsWithChildren } from "react";
+
 import Cookiebar from "../components/Cookiebar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
