@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 import { routes } from "@/routes";
 
-
 export default function Navigation() {
   const router = useRouter();
 

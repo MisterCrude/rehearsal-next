@@ -51,6 +51,10 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [@mapbox/mapbox-gl-geocoder](https://github.com/mapbox/mapbox-gl-geocoder)
 - [mapbox-gl](https://www.npmjs.com/package/mapbox-gl)
 
+### Dev tools
+
+`husky`, `prettier`, `next lint`
+
 ### Services
 
 - [Clicky](https://clicky.com/) - analytics tool
@@ -80,6 +84,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `services/ `- services, analytics, auth, etc
 - `types/ `- typescript shared application types
 - `utils/ `- utility functions
+- `constants` - constants with settings, etc
+- `routes` - application page based routes used in _navigation_, _breadcrumbs_, etc
 - `.env.local.example`- environment variables
 - `.env.local `- local environment variables
 - `.next/` - next build

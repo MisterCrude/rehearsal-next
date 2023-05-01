@@ -15,7 +15,6 @@ import AnalyticsScript from "@/services/analyticsScript";
 import { createEmotionCache } from "@/utils/createEmotionCache";
 import { theme } from "@/utils/theme";
 
-
 import { AppProps } from "./_app";
 
 interface CustomDocumentProps extends DocumentProps {

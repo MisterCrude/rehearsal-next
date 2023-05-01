@@ -7,7 +7,7 @@ interface Route {
 // Pages should be in sync with `pages/*.tsx` files naming
 export type Pages = "home" | "about" | "cookie-policy";
 
-// Examole how to add new page for pages/new-page.tsx
+// Example how to add new page for pages/new-page.tsx
 // { "new-page": { name: "New page", path: "/new-page", hidden: true } }
 export const routes: Record<Pages, Route> = {
   "cookie-policy": {

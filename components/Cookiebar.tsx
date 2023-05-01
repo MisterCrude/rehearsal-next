@@ -9,7 +9,6 @@ import Snackbar from "@mui/material/Snackbar";
 import { COOKIE_ACCEPTED } from "@/constants";
 import { getItem, setItem } from "@/services/localStorage";
 
-
 interface CookiebarProps {
   message: ReactNode | string;
   buttonText?: string;
