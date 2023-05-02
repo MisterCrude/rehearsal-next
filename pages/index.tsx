@@ -74,12 +74,11 @@ export default function Home({
       <Typography
         sx={{
           marginBottom: 2,
-          justifyContent: "flex-end",
           display: "flex",
           color: "gray",
         }}
       >
-        {filteredStudios.length} ofert
+        {filteredStudios.length} ofert w Warszawie
       </Typography>
       {!filteredStudios.length && (
         <Typography

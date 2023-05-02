@@ -5,7 +5,6 @@ import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import SpeakerIcon from "@mui/icons-material/Speaker";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 
 import LocationInput from "@/components/Filters/LocationInput";
 import { District, Service } from "@/resources/dto/studio";
@@ -87,8 +86,15 @@ export default function Filters({
           alignItems: "center",
         }}
       >
-        <Box sx={{ overflowX: "auto", paddingBottom: 1 }}>
-          <Stack direction="row" spacing={2}>
+        <Box sx={{ overflowX: "auto", paddingBottom: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              "& > *": {
+                marginRight: 2,
+              },
+            }}
+          >
             {/* District filter */}
             <MultiSelect
               icon={<DomainOutlinedIcon />}
@@ -117,16 +123,19 @@ export default function Filters({
 
             {/* Clear filters button */}
             {!isFiltersEmpty && (
-              <Button
-                color="error"
-                endIcon={<CloseIcon />}
-                sx={{ textTransform: "none" }}
-                onClick={handleClear}
-              >
-                Wyczyść
-              </Button>
+              // Wrap in `Box` to prevent `Button` from shrinkage for mobile
+              <Box>
+                <Button
+                  color="error"
+                  endIcon={<CloseIcon />}
+                  sx={{ textTransform: "none" }}
+                  onClick={handleClear}
+                >
+                  Wyczyść
+                </Button>
+              </Box>
             )}
-          </Stack>
+          </Box>
         </Box>
       </Box>
     </>

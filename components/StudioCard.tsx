@@ -98,17 +98,17 @@ export default function StudioCard({ studio }: StudioCard) {
               justifyContent: "space-between",
             }}
           >
-            <Stack direction="row" spacing={1}>
+            <Box sx={{ display: "flex", flexWrap: "wrap", marginBottom: -1 }}>
               {services?.map((service) => (
                 <Chip
                   key={service.id}
                   label={service.name}
                   color="primary"
                   size="small"
-                  sx={{ paddingX: 0.6 }}
+                  sx={{ paddingX: 0.6, marginRight: 1, marginBottom: 1 }}
                 />
               ))}
-            </Stack>
+            </Box>
 
             <Typography
               variant="subtitle1"
