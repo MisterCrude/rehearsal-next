@@ -1,11 +1,11 @@
-import { MutableRefObject, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
 import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import SpeakerIcon from "@mui/icons-material/Speaker";
-import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
 
 import LocationInput from "@/components/Filters/LocationInput";
 import { District, Service } from "@/resources/dto/studio";
@@ -71,67 +71,63 @@ export default function Filters({
   );
 
   return (
-    <>
-      {/* Distance sort */}
-      <Box sx={{ marginBottom: 2 }}>
-        <LocationInput
-          onSelect={handleSelect}
-          locationInputRef={locationInputRef}
-        />
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+      }}
+    >
+      <Box sx={{ overflowX: "auto", paddingBottom: 2 }}>
+        <Stack spacing={2} direction="row">
+          {/* District filter */}
+          <MultiSelect
+            icon={<DomainOutlinedIcon />}
+            name={FilterNames.District}
+            title="Dzielnica"
+            options={districts.map((district) => ({
+              label: district.name,
+              value: district.id,
+            }))}
+            selected={selectedFilters.district}
+            onSelect={handleSelect}
+          />
+
+          {/* Service filter */}
+          <MultiSelect
+            icon={<SpeakerIcon />}
+            name={FilterNames.Service}
+            title="Usługa"
+            options={services.map((service) => ({
+              label: service.name,
+              value: service.id,
+            }))}
+            selected={selectedFilters.service}
+            onSelect={handleSelect}
+          />
+
+          {/* Distance sort */}
+          <LocationInput
+            onSelect={handleSelect}
+            locationInputRef={locationInputRef}
+          />
+
+          {/* Clear filters button */}
+          {!isFiltersEmpty && (
+            // Wrap in `Box` to prevent `Button` from shrinkage for mobile
+            <Box>
+              <Button
+                color="error"
+                endIcon={<CloseIcon />}
+                sx={{ textTransform: "none" }}
+                onClick={handleClear}
+              >
+                Wyczyść
+              </Button>
+            </Box>
+          )}
+        </Stack>
       </Box>
-
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Box sx={{ overflowX: "auto", paddingBottom: 2 }}>
-          <Stack spacing={2} direction="row">
-            {/* District filter */}
-            <MultiSelect
-              icon={<DomainOutlinedIcon />}
-              name={FilterNames.District}
-              title="Dzielnica"
-              options={districts.map((district) => ({
-                label: district.name,
-                value: district.id,
-              }))}
-              selected={selectedFilters.district}
-              onSelect={handleSelect}
-            />
-
-            {/* Service filter */}
-            <MultiSelect
-              icon={<SpeakerIcon />}
-              name={FilterNames.Service}
-              title="Usługa"
-              options={services.map((service) => ({
-                label: service.name,
-                value: service.id,
-              }))}
-              selected={selectedFilters.service}
-              onSelect={handleSelect}
-            />
-
-            {/* Clear filters button */}
-            {!isFiltersEmpty && (
-              // Wrap in `Box` to prevent `Button` from shrinkage for mobile
-              <Box>
-                <Button
-                  color="error"
-                  endIcon={<CloseIcon />}
-                  sx={{ textTransform: "none" }}
-                  onClick={handleClear}
-                >
-                  Wyczyść
-                </Button>
-              </Box>
-            )}
-          </Stack>
-        </Box>
-      </Box>
-    </>
+    </Box>
   );
 }

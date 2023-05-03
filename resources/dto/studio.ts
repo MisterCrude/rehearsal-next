@@ -1,5 +1,6 @@
-import { ImageField } from "@/types/contentful";
 import { Asset, Entry, EntryFields } from "contentful";
+
+import { ImageField } from "@/types/contentful";
 
 export interface DistrictDto {
   name: string;

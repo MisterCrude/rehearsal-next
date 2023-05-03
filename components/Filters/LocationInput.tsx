@@ -10,6 +10,7 @@ import { theme } from "@/utils/theme";
 
 const Geocoder = styled.div`
   .mapboxgl-ctrl-geocoder {
+    min-width: 300px;
     box-shadow: none;
     border: 1px solid rgba(25, 118, 210, 0.5);
     border-radius: 2rem;
