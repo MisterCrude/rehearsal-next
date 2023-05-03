@@ -3,6 +3,7 @@ import { MutableRefObject, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import SpeakerIcon from "@mui/icons-material/Speaker";
+import { Stack } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
@@ -87,14 +88,7 @@ export default function Filters({
         }}
       >
         <Box sx={{ overflowX: "auto", paddingBottom: 2 }}>
-          <Box
-            sx={{
-              display: "flex",
-              "& > *": {
-                marginRight: 2,
-              },
-            }}
-          >
+          <Stack spacing={2} direction="row">
             {/* District filter */}
             <MultiSelect
               icon={<DomainOutlinedIcon />}
@@ -135,7 +129,7 @@ export default function Filters({
                 </Button>
               </Box>
             )}
-          </Box>
+          </Stack>
         </Box>
       </Box>
     </>
