@@ -4,8 +4,8 @@ import styled from "@emotion/styled";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import { Button } from "@mui/material";
 
-import { FilterNames } from "@/components/Filters/types";
 import { createGeocoder } from "@/services/mapbox";
+import { FilterNames } from "@/ui/home/Filters/types";
 import { theme } from "@/utils/theme";
 
 const Geocoder = styled.div`
@@ -56,7 +56,7 @@ const Geocoder = styled.div`
 
 interface LocationButtonProps {
   onSelect: (name: FilterNames.Location, selected: number[]) => void;
-  locationInputRef?: MutableRefObject<MapboxGeocoder | undefined>;
+  LocationFieldRef?: MutableRefObject<MapboxGeocoder | undefined>;
 }
 
 const gc = createGeocoder({
@@ -65,7 +65,7 @@ const gc = createGeocoder({
 
 export default function LocationButton({
   onSelect,
-  locationInputRef,
+  LocationFieldRef,
 }: LocationButtonProps) {
   const geocoder = useRef<MapboxGeocoder | undefined>(gc);
 
@@ -82,16 +82,16 @@ export default function LocationButton({
         }
       );
 
-      // Set `geocoder` ref to `locationInputRef`
+      // Set `geocoder` ref to `LocationFieldRef`
       // for move ability to clear input from parent component
-      if (locationInputRef) {
-        locationInputRef.current = mapboxGeocoder;
+      if (LocationFieldRef) {
+        LocationFieldRef.current = mapboxGeocoder;
       }
     }
     return () => {
       geocoder.current = undefined;
     };
-  }, [onSelect, locationInputRef]);
+  }, [onSelect, LocationFieldRef]);
 
   return <Geocoder id="geocoder" />;
 }

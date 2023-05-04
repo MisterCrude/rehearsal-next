@@ -5,12 +5,11 @@ import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
 import SpeakerIcon from "@mui/icons-material/Speaker";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 
-import LocationInput from "@/components/Filters/LocationInput";
+import MultiSelect from "@/components/MultiSelect";
 import { District, Service } from "@/resources/dto/studio";
+import LocationField from "@/ui/home/Filters/LocationField";
 
-import MultiSelect from "./MultiSelect";
 import { Filter, FilterNames } from "./types";
 
 interface FiltersProps {
@@ -33,7 +32,7 @@ export default function Filters({
   const [selectedFilters, setSelectedFilters] =
     useState<Filter>(defaultFilters);
 
-  const locationInputRef = useRef<MapboxGeocoder>();
+  const LocationFieldRef = useRef<MapboxGeocoder>();
 
   const handleSelect = (name: string, selected: string[] | number[]) => {
     setSelectedFilters((prevState) => {
@@ -63,7 +62,7 @@ export default function Filters({
   const handleClear = () => {
     setSelectedFilters(defaultFilters);
     onChange(defaultFilters);
-    locationInputRef.current?.clear();
+    LocationFieldRef.current?.clear();
   };
 
   const isFiltersEmpty = Object.values(selectedFilters).every((filter) =>
@@ -113,9 +112,9 @@ export default function Filters({
       </Box>
 
       {/* Distance sort */}
-      <LocationInput
+      <LocationField
         onSelect={handleSelect}
-        locationInputRef={locationInputRef}
+        LocationFieldRef={LocationFieldRef}
       />
 
       {/* Clear filters button */}

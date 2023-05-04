@@ -74,7 +74,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ### App arhitecture
 
-- `components/`- reusable components, can contain not shared _subcomponents_, _utils_, _types_ if needed
+- `components/`- reusable components, can contain not shared _subcomponents_, _utils_, _types_
 - `contexts/` - custom contexts
 - `hooks/` - custom hooks
 - `layouts/` - components that are composed of pages
@@ -84,6 +84,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `services/ `- services, analytics, auth, etc
 - `types/ `- typescript shared application types
 - `utils/ `- utility functions
+- `ui/ `- groups of components that are used only in one concrete page
 - `constants` - constants with settings, etc
 - `routes` - application page based routes used in _navigation_, _breadcrumbs_, etc
 - `.env.local.example`- environment variables

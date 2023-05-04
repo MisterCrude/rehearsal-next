@@ -1,41 +1,21 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
-import CloseIcon from "@mui/icons-material/Close";
-import { InputAdornment, IconButton } from "@mui/material";
-import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { distance as calculateDistance } from "@turf/turf";
-import debounce from "lodash/debounce";
 import { InferGetServerSidePropsType } from "next";
 
-import Filters from "@/components/Filters";
-import { Filter } from "@/components/Filters/types";
 import StudioCard from "@/components/StudioCard";
 import Primary from "@/layouts/Primary";
 import { getDistricts } from "@/resources/contentful/district";
 import { getServices } from "@/resources/contentful/service";
 import { getStudios } from "@/resources/contentful/studio";
-import { Studio } from "@/resources/dto/studio";
-
-// TODO move it to utils file
-const filterStudios = (studios: Studio[], queryString: string = "") => {
-  if (!queryString || queryString.length < 3) {
-    return studios;
-  }
-
-  const filteredStudios = studios.filter(({ title, address }) => {
-    const hasInTitle = title.toLowerCase().includes(queryString.toLowerCase());
-    const hasInAddress = address
-      .toLowerCase()
-      .includes(queryString.toLowerCase());
-
-    return hasInTitle || hasInAddress;
-  });
-
-  return filteredStudios;
-};
+import Filters from "@/ui/home/Filters";
+import { Filter } from "@/ui/home/Filters/types";
+import NotFound from "@/ui/home/NotFound";
+import OffersAmount from "@/ui/home/OffersAmount";
+import SearchField from "@/ui/home/SearchField";
+import { filterStudios } from "@/ui/home/utils";
 
 export default function Home({
   studios,
@@ -87,57 +67,15 @@ export default function Home({
     return setFilteredStudios(selected);
   };
 
-  const handleQueryDebounced = debounce(
-    (queryString: string) => filterStudios(filteredStudios, queryString),
-    500
-  );
-
-  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
-    handleQueryDebounced(event.target.value);
-  };
-
-  const handleClearQuery = () => {
-    setSearchQuery("");
-    filterStudios(filteredStudios);
+  const handleQueryChange = (query: string) => {
+    setSearchQuery(query);
   };
 
   const searchedStudios = filterStudios(filteredStudios, searchQuery);
 
   return (
     <Primary>
-      {/* Name and address search bar */}
-      <Box sx={{ marginBottom: 4, width: "100%" }}>
-        <OutlinedInput
-          size="small"
-          value={searchQuery}
-          onChange={handleQueryChange}
-          placeholder="Szukaj po nazwie lub adresie"
-          endAdornment={
-            searchQuery.length > 0 && (
-              <InputAdornment position="end">
-                <IconButton
-                  size="small"
-                  aria-label="clear search query"
-                  onClick={handleClearQuery}
-                  edge="end"
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              </InputAdornment>
-            )
-          }
-          sx={{
-            "& .MuiOutlinedInput-root": {
-              borderRadius: 2,
-            },
-            minWidth: {
-              xs: "100%",
-              sm: 400,
-            },
-          }}
-        />
-      </Box>
+      <SearchField onChange={handleQueryChange} />
 
       <Filters
         districts={districts}
@@ -145,29 +83,9 @@ export default function Home({
         onChange={handleFilterChange}
       />
 
-      {/* TODO Move to separate component */}
-      <Typography
-        sx={{
-          marginBottom: 2,
-          display: "flex",
-          color: "gray",
-        }}
-      >
-        {searchedStudios.length} ofert w Warszawie
-      </Typography>
-      {!searchedStudios.length && (
-        <Typography
-          variant="h4"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            paddingTop: 6,
-            color: "divider",
-          }}
-        >
-          Nie znaleziono!
-        </Typography>
-      )}
+      <OffersAmount amount={searchedStudios.length} />
+
+      {!searchedStudios.length && <NotFound />}
 
       <Stack gap={4}>
         {searchedStudios.map((studio) => (
