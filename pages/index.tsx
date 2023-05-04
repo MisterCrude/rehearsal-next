@@ -107,7 +107,7 @@ export default function Home({
   return (
     <Primary>
       {/* Name and address search bar */}
-      <Box sx={{ marginBottom: 3, width: "100%" }}>
+      <Box sx={{ marginBottom: 4, width: "100%" }}>
         <OutlinedInput
           size="small"
           value={searchQuery}

@@ -74,60 +74,64 @@ export default function Filters({
     <Box
       sx={{
         display: "flex",
-        justifyContent: "space-between",
+        flexWrap: "wrap",
         alignItems: "center",
+        "& > *": {
+          marginRight: 2,
+          marginBottom: 2,
+        },
       }}
     >
-      <Box sx={{ overflowX: "auto", paddingBottom: 2 }}>
-        <Stack spacing={2} direction="row">
-          {/* District filter */}
-          <MultiSelect
-            icon={<DomainOutlinedIcon />}
-            name={FilterNames.District}
-            title="Dzielnica"
-            options={districts.map((district) => ({
-              label: district.name,
-              value: district.id,
-            }))}
-            selected={selectedFilters.district}
-            onSelect={handleSelect}
-          />
-
-          {/* Service filter */}
-          <MultiSelect
-            icon={<SpeakerIcon />}
-            name={FilterNames.Service}
-            title="Usługa"
-            options={services.map((service) => ({
-              label: service.name,
-              value: service.id,
-            }))}
-            selected={selectedFilters.service}
-            onSelect={handleSelect}
-          />
-
-          {/* Distance sort */}
-          <LocationInput
-            onSelect={handleSelect}
-            locationInputRef={locationInputRef}
-          />
-
-          {/* Clear filters button */}
-          {!isFiltersEmpty && (
-            // Wrap in `Box` to prevent `Button` from shrinkage for mobile
-            <Box>
-              <Button
-                color="error"
-                endIcon={<CloseIcon />}
-                sx={{ textTransform: "none" }}
-                onClick={handleClear}
-              >
-                Wyczyść
-              </Button>
-            </Box>
-          )}
-        </Stack>
+      {/* District filter */}
+      <Box>
+        <MultiSelect
+          icon={<DomainOutlinedIcon />}
+          name={FilterNames.District}
+          title="Dzielnica"
+          options={districts.map((district) => ({
+            label: district.name,
+            value: district.id,
+          }))}
+          selected={selectedFilters.district}
+          onSelect={handleSelect}
+        />
       </Box>
+
+      {/* Service filter */}
+      <Box>
+        <MultiSelect
+          icon={<SpeakerIcon />}
+          name={FilterNames.Service}
+          title="Usługa"
+          options={services.map((service) => ({
+            label: service.name,
+            value: service.id,
+          }))}
+          selected={selectedFilters.service}
+          onSelect={handleSelect}
+        />
+      </Box>
+
+      {/* Distance sort */}
+      <LocationInput
+        onSelect={handleSelect}
+        locationInputRef={locationInputRef}
+      />
+
+      {/* Clear filters button */}
+      {!isFiltersEmpty && (
+        // Wrap in `Box` to prevent `Button` from shrinkage for mobile
+        <Box>
+          <Button
+            color="error"
+            endIcon={<CloseIcon />}
+            sx={{ textTransform: "none" }}
+            onClick={handleClear}
+          >
+            Wyczyść
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }
