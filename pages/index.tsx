@@ -1,9 +1,7 @@
-import { useState } from "react";
-
 import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 import { distance as calculateDistance } from "@turf/turf";
 import { InferGetServerSidePropsType } from "next";
+import { useState } from "react";
 
 import StudioCard from "@/components/StudioCard";
 import Primary from "@/layouts/Primary";
@@ -16,7 +14,6 @@ import NotFound from "@/ui/home/NotFound";
 import OffersAmount from "@/ui/home/OffersAmount";
 import SearchField from "@/ui/home/SearchField";
 import { filterStudios } from "@/ui/home/utils";
-
 export default function Home({
   studios,
   districts,

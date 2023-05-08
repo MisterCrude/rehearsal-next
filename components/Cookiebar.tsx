@@ -1,10 +1,9 @@
-import { ReactNode, forwardRef, useEffect, useState } from "react";
-
 import CookieIcon from "@mui/icons-material/Cookie";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
+import { forwardRef, ReactNode, useEffect, useState } from "react";
 
 import { COOKIE_ACCEPTED } from "@/constants";
 import { getItem, setItem } from "@/services/localStorage";

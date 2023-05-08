@@ -1,10 +1,9 @@
-import { QueryClient, QueryClientProvider } from "react-query";
-
 import { CacheProvider, EmotionCache, ThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { AppProps as Props } from "next/app";
 import { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
 import { SnackbarProvider } from "@/contexts/SnackbarContext";

@@ -1,32 +1,37 @@
 {
   "extends": ["next/core-web-vitals", "prettier"],
-  "rules": {
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "external",
-          "builtin",
-          "internal",
-          "parent",
-          "sibling",
-          "index"
-        ],
-        "pathGroups": [
+  "plugins": ["prettier", "simple-import-sort"],
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "rules": {
+        "simple-import-sort/imports": [
+          "error",
           {
-            "pattern": "react*",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "@/**",
-            "group": "internal"
+            "groups": [
+              // Packages `react` related packages come first.
+              ["^react", "^@?\\w"],
+              // Internal packages.
+              ["^(@|components)(/.*|$)"],
+              // Side effect imports.
+              ["^\\u0000"],
+              // Parent imports. Put `..` last.
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+              // Style imports.
+              ["^.+\\.?(css)$"]
+            ]
           }
-        ],
-        "pathGroupsExcludedImportTypes": ["react"],
-        "alphabetize": { "order": "asc" },
-        "newlines-between": "always"
+        ]
       }
-    ]
+    }
+  ],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }
