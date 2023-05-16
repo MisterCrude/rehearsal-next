@@ -40,6 +40,12 @@ interface MultiSelectProps {
   icon?: ReactNode;
 
   /**
+   * Whether the filter is disabled
+   * @type {boolean=}
+   */
+  disabled?: boolean;
+
+  /**
    * A callback function to handle selection.
    * @type {(name: string, selected: string[]) => void}
    */
@@ -52,6 +58,7 @@ export default function MultiSelect({
   options,
   selected,
   title,
+  disabled,
   onSelect,
 }: MultiSelectProps) {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
@@ -77,6 +84,7 @@ export default function MultiSelect({
   return (
     <>
       <Button
+        disabled={disabled}
         variant={selected.length ? "contained" : "outlined"}
         endIcon={<ExpandMoreIcon />}
         startIcon={icon}

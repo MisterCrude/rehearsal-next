@@ -1,8 +1,6 @@
-import { MutableRefObject, useEffect, useRef } from "react";
-
 import styled from "@emotion/styled";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
-import { Button } from "@mui/material";
+import { MutableRefObject, useEffect, useRef } from "react";
 
 import { createGeocoder } from "@/services/mapbox";
 import { FilterNames } from "@/ui/home/Filters/types";

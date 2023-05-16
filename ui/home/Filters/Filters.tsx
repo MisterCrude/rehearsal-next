@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
-
 import CloseIcon from "@mui/icons-material/Close";
 import DomainOutlinedIcon from "@mui/icons-material/DomainOutlined";
+import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import SpeakerIcon from "@mui/icons-material/Speaker";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { useRef, useState } from "react";
 
 import MultiSelect from "@/components/MultiSelect";
 import { District, Service } from "@/resources/dto/studio";
@@ -81,6 +81,21 @@ export default function Filters({
         },
       }}
     >
+      {/* City filter */}
+      <Box>
+        <MultiSelect
+          disabled
+          icon={<RoomOutlinedIcon />}
+          name="city"
+          options={[]}
+          title="Miasto"
+          selected={[]}
+          onSelect={() => {
+            /** */
+          }}
+        />
+      </Box>
+
       {/* District filter */}
       <Box>
         <MultiSelect
