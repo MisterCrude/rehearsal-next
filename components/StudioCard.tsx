@@ -19,6 +19,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useState } from "react";
 
+import useFeatureFlags from "@/hooks/useFeatureFlags";
 import { Studio } from "@/resources/dto/studio";
 
 interface StudioCard {
@@ -27,6 +28,7 @@ interface StudioCard {
 
 export default function StudioCard({ studio }: StudioCard) {
   const [showDetails, setShowDetails] = useState(false);
+  const { isFeatureEnabled } = useFeatureFlags();
 
   const handleShowDetails = () => {
     setShowDetails((prev) => !prev);
@@ -137,74 +139,88 @@ export default function StudioCard({ studio }: StudioCard) {
                   />
                 ))}
               </Box>
-              <Button
-                size="small"
-                onClick={handleShowDetails}
-                endIcon={<ExpandMoreIcon />}
-              >
-                Zobacz salki
-              </Button>
+
+              {isFeatureEnabled("rooms") && (
+                <>
+                  {/* Collapsed button */}
+                  <Button
+                    size="small"
+                    onClick={handleShowDetails}
+                    endIcon={<ExpandMoreIcon />}
+                  >
+                    Zobacz salki
+                  </Button>
+                </>
+              )}
             </Box>
           </CardContent>
         </Box>
 
         {/* Collapsed */}
-        <Collapse unmountOnExit in={showDetails}>
-          <Divider />
+        {isFeatureEnabled("rooms") && (
+          <>
+            <Collapse unmountOnExit in={showDetails}>
+              <Divider />
 
-          <Paper
-            elevation={1}
-            sx={{
-              padding: 2,
-              backgroundColor: "grey.100",
-              borderTopRightRadius: 0,
-              borderTopLeftRadius: 0,
-            }}
-          >
-            <Stack
-              spacing={1}
-              direction="row"
-              sx={{ display: "flex", alignItems: "center", marginBottom: 2 }}
-            >
-              <Typography>Red room:</Typography>
-              <Chip
-                icon={<AspectRatioOutlinedIcon />}
-                label={"34m2"}
-                variant="outlined"
-                size="small"
-                sx={{ paddingLeft: 0.5 }}
-              />
-              <Chip
-                icon={<PeopleOutlinedIcon />}
-                label={"3-4 osoby"}
-                variant="outlined"
-                size="small"
-                sx={{ paddingLeft: 0.5 }}
-              />
-            </Stack>
-            <Stack
-              spacing={1}
-              direction="row"
-              sx={{ display: "flex", alignItems: "center" }}
-            >
-              <Typography>Red room:</Typography>
-              <Chip
-                icon={<AspectRatioOutlinedIcon />}
-                label={"34m2"}
-                variant="outlined"
-                size="small"
-                sx={{ paddingLeft: 0.5 }}
-              />
-              <Chip
-                icon={<PeopleOutlinedIcon />}
-                label={"3-4 osoby"}
-                variant="outlined"
-                size="small"
-                sx={{ paddingLeft: 0.5 }}
-              />
-            </Stack>
-          </Paper>
-        </Collapse>
+              <Paper
+                elevation={1}
+                sx={{
+                  padding: 2,
+                  backgroundColor: "grey.100",
+                  borderTopRightRadius: 0,
+                  borderTopLeftRadius: 0,
+                }}
+              >
+                <Stack
+                  spacing={1}
+                  direction="row"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    marginBottom: 2,
+                  }}
+                >
+                  <Typography>Red room:</Typography>
+                  <Chip
+                    icon={<AspectRatioOutlinedIcon />}
+                    label={"34m2"}
+                    variant="outlined"
+                    size="small"
+                    sx={{ paddingLeft: 0.5 }}
+                  />
+                  <Chip
+                    icon={<PeopleOutlinedIcon />}
+                    label={"3-4 osoby"}
+                    variant="outlined"
+                    size="small"
+                    sx={{ paddingLeft: 0.5 }}
+                  />
+                </Stack>
+                <Stack
+                  spacing={1}
+                  direction="row"
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
+                  <Typography>Red room:</Typography>
+                  <Chip
+                    icon={<AspectRatioOutlinedIcon />}
+                    label={"34m2"}
+                    variant="outlined"
+                    size="small"
+                    sx={{ paddingLeft: 0.5 }}
+                  />
+                  <Chip
+                    icon={<PeopleOutlinedIcon />}
+                    label={"3-4 osoby"}
+                    variant="outlined"
+                    size="small"
+                    sx={{ paddingLeft: 0.5 }}
+                  />
+                </Stack>
+              </Paper>
+            </Collapse>
+          </>
+        )}
       </Card>
     </Box>
   );

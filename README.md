@@ -86,6 +86,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `utils/ `- utility functions
 - `ui/ `- groups of components that are used only in one concrete page
 - `constants` - constants with settings, etc
+- `feature-flags.ts` - list of feature flags ([How to use](hooks/useFeatureFlags/README.md))
 - `routes` - application page based routes used in _navigation_, _breadcrumbs_, etc
 - `.env.local.example`- environment variables
 - `.env.local `- local environment variables

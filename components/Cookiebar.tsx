@@ -6,7 +6,7 @@ import Snackbar from "@mui/material/Snackbar";
 import { forwardRef, ReactNode, useEffect, useState } from "react";
 
 import { COOKIE_ACCEPTED } from "@/constants";
-import { getItem, setItem } from "@/services/localStorage";
+import { getItem, setItem } from "@/services/local-storage";
 
 interface CookiebarProps {
   message: ReactNode | string;

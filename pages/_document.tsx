@@ -10,7 +10,7 @@ import Document, {
 } from "next/document";
 import * as React from "react";
 
-import AnalyticsScript from "@/services/analyticsScript";
+import AnalyticsScript from "@/services/analytics-script";
 import { createEmotionCache } from "@/utils/createEmotionCache";
 import { theme } from "@/utils/theme";
 
