@@ -23,9 +23,10 @@ const Geocoder = styled.div`
     }
 
     & .mapboxgl-ctrl-geocoder--icon-loading {
-      height: 27px;
-      top: 0;
-      background-color: white;
+      height: 30px;
+      top: 5px;
+      right: 10px;
+      background-color: transparent;
     }
 
     & .mapboxgl-ctrl-geocoder--icon-close {
