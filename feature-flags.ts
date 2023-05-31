@@ -21,7 +21,7 @@ export interface FeatureFlags {
 const featureFlags: FeatureFlags[] = [
   {
     key: "rooms",
-    enabled: false,
+    enabled: true,
     title: "Rooms",
     description: "Rooms collapsible list below each card in home page listing",
   },

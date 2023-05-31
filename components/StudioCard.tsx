@@ -148,7 +148,18 @@ export default function StudioCard({ studio }: StudioCard) {
                     onClick={handleShowDetails}
                     endIcon={<ExpandMoreIcon />}
                   >
-                    Zobacz salki
+                    <Box
+                      component="span"
+                      sx={{ display: { xs: "inline", sm: "none" } }}
+                    >
+                      Salki
+                    </Box>
+                    <Box
+                      component="span"
+                      sx={{ display: { xs: "none", sm: "inline" } }}
+                    >
+                      Zobacz salki
+                    </Box>
                   </Button>
                 </>
               )}
