@@ -88,6 +88,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - `constants` - constants with settings, etc
 - `feature-flags.ts` - list of feature flags ([How to use](hooks/useFeatureFlags/README.md))
 - `routes` - application page based routes used in _navigation_, _breadcrumbs_, etc
+- `app-settings `- application settings
 - `.env.local.example`- environment variables
 - `.env.local `- local environment variables
 - `.next/` - next build

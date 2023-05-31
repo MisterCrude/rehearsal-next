@@ -14,6 +14,7 @@ import NotFound from "@/ui/home/NotFound";
 import OffersAmount from "@/ui/home/OffersAmount";
 import SearchField from "@/ui/home/SearchField";
 import { filterStudios } from "@/ui/home/utils";
+
 export default function Home({
   studios,
   districts,
@@ -52,7 +53,8 @@ export default function Home({
 
         return {
           ...studio,
-          distance: Math.round(distance) + 2,
+          endLocation: filter.location!,
+          distance: Math.round(distance) + 3,
         };
       });
 

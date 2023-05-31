@@ -1,8 +1,7 @@
-import { useState } from "react";
-
 import CloseIcon from "@mui/icons-material/Close";
-import { Box, OutlinedInput, InputAdornment, IconButton } from "@mui/material";
+import { Box, IconButton, InputAdornment, OutlinedInput } from "@mui/material";
 import debounce from "lodash/debounce";
+import { useState } from "react";
 
 interface SearchFieldProps {
   onChange: (query: string) => void;

@@ -1,5 +1,7 @@
-import { ContentPayloadDto } from "@/resources/dto/content-payload";
 import { useQuery } from "react-query";
+
+import { ContentPayloadDto } from "@/resources/dto/content-payload";
+
 import apiPaths from "../apiPaths";
 
 const getContentPayload = async (

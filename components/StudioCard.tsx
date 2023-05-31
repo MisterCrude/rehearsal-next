@@ -19,6 +19,7 @@ import Typography from "@mui/material/Typography";
 import Image from "next/image";
 import { useState } from "react";
 
+import { MAP_URL } from "@/app-settings";
 import useFeatureFlags from "@/hooks/useFeatureFlags";
 import { Studio } from "@/resources/dto/studio";
 
@@ -32,6 +33,17 @@ export default function StudioCard({ studio }: StudioCard) {
 
   const handleShowDetails = () => {
     setShowDetails((prev) => !prev);
+  };
+
+  const handleOpenMap = () => {
+    console.log(studio.endLocation);
+    const [endLon, endLat] = studio.endLocation!;
+    const { lat, lon } = studio.location;
+
+    const start = `${lat},${lon}`;
+    const end = `${endLat},${endLon}`;
+    const url = `${MAP_URL}&origin=${start}&destination=${end}&travelmode=driving`;
+    window.open(url, "_blank");
   };
 
   const { title, image, link, address, district, services, distance } = studio;
@@ -63,6 +75,7 @@ export default function StudioCard({ studio }: StudioCard) {
           </CardMedia>
 
           <CardContent sx={{ flex: "1 0 auto" }}>
+            {/* Title */}
             <Box>
               <Typography
                 component="a"
@@ -81,6 +94,7 @@ export default function StudioCard({ studio }: StudioCard) {
               </Typography>
             </Box>
 
+            {/* District */}
             <Chip
               icon={<DomainOutlinedIcon />}
               label={district.name}
@@ -89,41 +103,32 @@ export default function StudioCard({ studio }: StudioCard) {
               variant="outlined"
             />
 
-            <Typography
-              variant="subtitle1"
-              color="text.secondary"
-              component="div"
+            {/* Address */}
+            <Box
               sx={{
-                marginBottom: 1,
                 display: "flex",
+                alignItems: "center",
+                mb: 1,
                 flexWrap: "wrap",
-                lineHeight: 1.4,
               }}
             >
-              <Box
-                component="span"
-                sx={{
-                  alignItems: "flex-start",
-                  display: "flex",
-                  mr: distance ? 1 : 0,
-                  mb: distance ? 1 : 0,
-                }}
+              <Typography
+                variant="subtitle1"
+                color="text.secondary"
+                sx={{ display: "inline-flex", mr: 1 }}
               >
                 <RoomOutlinedIcon sx={{ mr: 0.5 }} />
                 {address}
-              </Box>
+              </Typography>
 
-              <Box
-                sx={{ alignItems: "flex-start", display: "flex", mr: 1, mb: 1 }}
-              >
-                {distance && (
-                  <>
-                    <RouteIcon sx={{ mr: 0.5 }} /> ~{distance} km od Ciebie
-                  </>
-                )}
-              </Box>
-            </Typography>
+              {distance && (
+                <Button variant="text" onClick={handleOpenMap}>
+                  <RouteIcon sx={{ mr: 0.5 }} /> ~{distance} km od Ciebie
+                </Button>
+              )}
+            </Box>
 
+            {/* Services */}
             <Box
               sx={{
                 display: "flex",

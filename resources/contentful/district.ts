@@ -1,4 +1,5 @@
 import { District, DistrictDto } from "@/resources/dto/studio";
+
 import contentfulApiClient from "./apiClient";
 
 export const getDistricts = async (): Promise<District[]> => {

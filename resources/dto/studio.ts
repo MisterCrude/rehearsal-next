@@ -38,4 +38,5 @@ export interface Studio
   services: Service[];
   image?: ImageField;
   distance?: number;
+  endLocation?: number[];
 }

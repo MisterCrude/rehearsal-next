@@ -2,6 +2,7 @@ import { Studio, StudioDto } from "@/resources/dto/studio";
 import { dtoToDistrict } from "@/utils/mappers/dto-to-district";
 import { dtoToImage } from "@/utils/mappers/dto-to-image";
 import { dtoToServices } from "@/utils/mappers/dto-to-services";
+
 import apiClient from "./apiClient";
 
 export const getStudios = async (): Promise<Studio[]> => {
