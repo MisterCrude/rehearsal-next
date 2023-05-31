@@ -63,21 +63,24 @@ export default function StudioCard({ studio }: StudioCard) {
           </CardMedia>
 
           <CardContent sx={{ flex: "1 0 auto" }}>
-            <Typography
-              component="a"
-              variant="h5"
-              href={link}
-              target="_blank"
-              sx={{ display: "block" }}
-            >
-              {title}
-              <OpenInNewIcon
-                sx={{
-                  marginLeft: 1,
-                  marginBottom: -0.5,
-                }}
-              />
-            </Typography>
+            <Box>
+              <Typography
+                component="a"
+                variant="h5"
+                href={link}
+                target="_blank"
+                sx={{ display: "inline" }}
+              >
+                {title}
+                <OpenInNewIcon
+                  sx={{
+                    marginLeft: 1,
+                    fontSize: "1.1rem",
+                  }}
+                />
+              </Typography>
+            </Box>
+
             <Chip
               icon={<DomainOutlinedIcon />}
               label={district.name}
