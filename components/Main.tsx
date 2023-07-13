@@ -8,6 +8,8 @@ export default function Main({ children }: PropsWithChildren) {
       sx={{
         marginY: 4,
         flexGrow: 1,
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       {children}

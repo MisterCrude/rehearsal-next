@@ -5,7 +5,7 @@ interface Route {
 }
 
 // Pages should be in sync with `pages/*.tsx` files naming
-export type Pages = "home" | "about" | "cookie-policy";
+export type Pages = "home" | "about" | "cookie-policy" | "login";
 
 // Example how to add new page for pages/new-page.tsx
 // { "new-page": { name: "New page", path: "/new-page", hidden: true } }
@@ -16,5 +16,6 @@ export const routes: Record<Pages, Route> = {
     hidden: true,
   },
   about: { name: "O nas", path: "/about" },
+  login: { name: "Login", path: "/login" },
   home: { name: "Głowna", path: "/", hidden: true },
 };
