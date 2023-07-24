@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -35,6 +36,9 @@ export default function Login() {
           </Typography>
           <TextField label="Email" />
           <TextField label="Hasło" type="password" />
+          <Button variant="contained" size="large">
+            Login
+          </Button>
         </Stack>
       </Box>
     </Primary>

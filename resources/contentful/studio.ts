@@ -3,10 +3,10 @@ import { dtoToDistrict } from "@/utils/mappers/dto-to-district";
 import { dtoToImage } from "@/utils/mappers/dto-to-image";
 import { dtoToServices } from "@/utils/mappers/dto-to-services";
 
-import apiClient from "./apiClient";
+import { deliveryApiClient } from "./apiClient";
 
 export const getStudios = async (): Promise<Studio[]> => {
-  const { items } = await apiClient.getEntries<StudioDto>({
+  const { items } = await deliveryApiClient.getEntries<StudioDto>({
     content_type: "studio",
     order: "fields.title",
   });

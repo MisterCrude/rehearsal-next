@@ -1,9 +1,9 @@
 import { District, DistrictDto } from "@/resources/dto/studio";
 
-import contentfulApiClient from "./apiClient";
+import { deliveryApiClient } from "./apiClient";
 
 export const getDistricts = async (): Promise<District[]> => {
-  const { items } = await contentfulApiClient.getEntries<DistrictDto>({
+  const { items } = await deliveryApiClient.getEntries<DistrictDto>({
     content_type: "district",
     order: "fields.name",
   });

@@ -1,8 +1,11 @@
-import { createClient } from "contentful";
+import { createClient as deliveryCreateClient } from "contentful";
+import { createClient as managementCreateClient } from "contentful-management";
 
-export const apiClient = createClient({
+export const deliveryApiClient = deliveryCreateClient({
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "",
   space: process.env.CONTENTFUL_SPACE_ID || "",
 });
 
-export default apiClient;
+export const managementApiClient = managementCreateClient({
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "",
+});

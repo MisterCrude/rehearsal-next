@@ -43,7 +43,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Next.js](https://vercel.com/solutions/nextjs)
 - [NextAuth.js](https://next-auth.js.org/)
 - [MUI](https://mui.com/)
-- [Contentful](https://www.npmjs.com/package/contentful)
+- [Contentful](https://github.com/contentful/contentful.js) - interacts with the Content Delivery API, a read-only API for retrieving content from Contentful
+- [Contentful Management](https://github.com/contentful/contentful-management.js) - interacts with the Content Management API, and allows you to create, edit, manage, and publish content
 - [lodash](https://lodash.com/)
 - [React-query](https://tanstack.com/query)
 - [Axios](https://axios-http.com/docs/intro)

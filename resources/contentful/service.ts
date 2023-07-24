@@ -1,9 +1,9 @@
 import { Service, ServiceDto } from "@/resources/dto/studio";
 
-import apiClient from "./apiClient";
+import { deliveryApiClient } from "./apiClient";
 
 export const getServices = async (): Promise<Service[]> => {
-  const { items } = await apiClient.getEntries<ServiceDto>({
+  const { items } = await deliveryApiClient.getEntries<ServiceDto>({
     content_type: "service",
     order: "fields.name",
   });
