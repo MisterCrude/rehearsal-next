@@ -1,17 +1,26 @@
+import Button from "@mui/material/Button";
 import MuiLink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import { signIn } from "next-auth/react";
+import { Fragment, MouseEvent } from "react";
 
 import { routes } from "@/routes";
+
+const SIGN_IN_PATH = "/api/auth/signin";
+const ROUTES = Object.values(routes);
 
 export default function Navigation() {
   const router = useRouter();
 
+  const handleSighIn = (event: MouseEvent<HTMLButtonElement>) => {
+    signIn();
+  };
+
   return (
-    <Stack spacing={2} direction="row">
-      {Object.values(routes).map(({ name, path, hideFromNav }) => (
+    <Stack spacing={2} direction="row" alignItems="center">
+      {ROUTES.map(({ name, path, hideFromNav }) => (
         <Fragment key={path}>
           {!hideFromNav && (
             <MuiLink
@@ -29,6 +38,13 @@ export default function Navigation() {
           )}
         </Fragment>
       ))}
+      <Button
+        variant="contained"
+        onClick={handleSighIn}
+        sx={{ textTransform: "none" }}
+      >
+        Załoguj się
+      </Button>
     </Stack>
   );
 }
