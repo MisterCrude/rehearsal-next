@@ -9,5 +9,8 @@ export const authOptions = {
       issuer: process.env.AUTH0_ISSUER,
     }),
   ],
+  callback: {
+    signIn: console.log,
+  },
 };
 export default NextAuth(authOptions);

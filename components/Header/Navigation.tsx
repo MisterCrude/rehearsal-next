@@ -11,16 +11,17 @@ export default function Navigation() {
 
   return (
     <Stack spacing={2} direction="row">
-      {Object.values(routes).map(({ name, path, hidden }) => (
+      {Object.values(routes).map(({ name, path, hideFromNav }) => (
         <Fragment key={path}>
-          {!hidden && (
+          {!hideFromNav && (
             <MuiLink
               color="inherit"
               component={Link}
               href={path}
               sx={{
-                textDecoration:
-                  path === router.pathname ? "underline" : "unset",
+                textDecoration: router.pathname.includes(path)
+                  ? "underline"
+                  : "unset",
               }}
             >
               {name}

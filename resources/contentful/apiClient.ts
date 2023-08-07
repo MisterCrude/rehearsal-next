@@ -6,6 +6,13 @@ export const deliveryApiClient = deliveryCreateClient({
   space: process.env.CONTENTFUL_SPACE_ID || "",
 });
 
-export const managementApiClient = managementCreateClient({
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "",
-});
+export const managementApiClient = managementCreateClient(
+  { accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "" },
+  {
+    type: "plain",
+    defaults: {
+      spaceId: process.env.CONTENTFUL_SPACE_ID || "",
+      environmentId: process.env.CONTENTFUL_ENVIRONMENT_ID || "",
+    },
+  }
+);

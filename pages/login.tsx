@@ -1,8 +1,9 @@
-import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Primary from "@/layouts/Primary";
@@ -39,6 +40,9 @@ export default function Login() {
           <Button variant="contained" size="large">
             Login
           </Button>
+          <Typography sx={{ marginTop: -2 }}>
+            Nie masz jeszcze konta? <Link href="/signup">zarejestruj się</Link>
+          </Typography>
         </Stack>
       </Box>
     </Primary>

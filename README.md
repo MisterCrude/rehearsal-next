@@ -62,7 +62,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - [Vercel](https://vercel.com/) - deployment
 - [Auth0](https://auth0.com/) - authentication
 - [Contentful](https://www.contentful.com/) - headless CMS
-  - [Strapi](https://strapi.io/features) - `NOT USED YET` open source alternative
+- ~~[Strapi](https://strapi.io/features) - open source alternative~~
 
 #### Development
 

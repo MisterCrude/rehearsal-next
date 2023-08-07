@@ -1,21 +1,27 @@
+/**
+ *  Interface of route params to create a route
+ *  @param {string} path - Path for the route
+ *  @param {string} name - Name of the route
+ *  @param {boolean} [hideFromNav] - Hide from header navigation (optional)
+ */
 interface Route {
   path: string;
   name: string;
-  hidden?: boolean; // Hide from header navigation
+  hideFromNav?: boolean;
 }
 
 // Pages should be in sync with `pages/*.tsx` files naming
 export type Pages = "home" | "about" | "cookie-policy" | "login";
 
 // Example how to add new page for pages/new-page.tsx
-// { "new-page": { name: "New page", path: "/new-page", hidden: true } }
+// { "new-page": { name: "New page", path: "/new-page", hideFromNav: true } }
 export const routes: Record<Pages, Route> = {
   "cookie-policy": {
     name: "Polityka plików cookie",
     path: "/cookie-policy",
-    hidden: true,
+    hideFromNav: true,
   },
   about: { name: "O nas", path: "/about" },
   login: { name: "Login", path: "/login" },
-  home: { name: "Głowna", path: "/", hidden: true },
+  home: { name: "Głowna", path: "/", hideFromNav: true },
 };
