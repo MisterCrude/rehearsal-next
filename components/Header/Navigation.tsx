@@ -3,19 +3,25 @@ import MuiLink from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { signIn } from "next-auth/react";
-import { Fragment, MouseEvent } from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { Fragment } from "react";
 
 import { routes } from "@/routes";
 
-const SIGN_IN_PATH = "/api/auth/signin";
+import UserAvatar from "./UserAvatar";
+
 const ROUTES = Object.values(routes);
 
 export default function Navigation() {
   const router = useRouter();
+  const { data: session } = useSession();
 
-  const handleSighIn = (event: MouseEvent<HTMLButtonElement>) => {
+  const handleSighIn = () => {
     signIn();
+  };
+
+  const handleSignOut = () => {
+    signOut();
   };
 
   return (
@@ -38,13 +44,22 @@ export default function Navigation() {
           )}
         </Fragment>
       ))}
-      <Button
-        variant="contained"
-        onClick={handleSighIn}
-        sx={{ textTransform: "none" }}
-      >
-        Załoguj się
-      </Button>
+
+      {session?.user ? (
+        <UserAvatar
+          onSignOut={handleSignOut}
+          username={session?.user.name || ""}
+          avatar={session?.user.image || ""}
+        />
+      ) : (
+        <Button
+          variant="contained"
+          onClick={handleSighIn}
+          sx={{ textTransform: "none" }}
+        >
+          Załoguj się
+        </Button>
+      )}
     </Stack>
   );
 }
